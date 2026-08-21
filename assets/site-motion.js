@@ -1,44 +1,73 @@
 (() => {
-  const createStoryVisual = ({ className, src, mobileSrc, alt, kicker, title, body }) => {
-    const figure = document.createElement("figure");
-    figure.className = `story-visual ${className}`;
+  const createStoryVisual = ({ className, images, kicker, title, body, steps }) => {
+    const section = document.createElement("section");
+    section.className = `story-visual ${className}`;
 
-    const art = document.createElement("div");
-    art.className = "story-visual__art";
+    const intro = document.createElement("div");
+    intro.className = "story-visual__intro";
 
-    const image = document.createElement("img");
-    image.src = src;
-    image.alt = alt;
-    image.loading = "lazy";
-    image.decoding = "async";
-    const picture = document.createElement("picture");
-
-    if (mobileSrc) {
-      const source = document.createElement("source");
-      source.media = "(max-width: 560px)";
-      source.srcset = mobileSrc;
-      picture.append(source);
-    }
-
-    picture.append(image);
-    art.append(picture);
-
-    const caption = document.createElement("figcaption");
-    caption.className = "story-visual__caption";
-
-    const label = document.createElement("span");
+    const label = document.createElement("p");
+    label.className = "section-kicker";
     label.textContent = kicker;
 
-    const heading = document.createElement("strong");
+    const heading = document.createElement("h2");
     heading.textContent = title;
 
     const copy = document.createElement("p");
     copy.textContent = body;
 
-    caption.append(label, heading, copy);
-    figure.append(art, caption);
+    intro.append(label, heading, copy);
 
-    return figure;
+    const art = document.createElement("div");
+    art.className = "story-visual__art";
+
+    images.forEach(({ src, alt, label: imageLabel }) => {
+      const photo = document.createElement("figure");
+      const image = document.createElement("img");
+      const caption = document.createElement("figcaption");
+
+      photo.className = "story-visual__photo";
+      image.src = src;
+      image.alt = alt;
+      image.loading = "lazy";
+      image.decoding = "async";
+      caption.textContent = imageLabel;
+      photo.append(image, caption);
+      art.append(photo);
+    });
+
+    const stepList = document.createElement("ol");
+    stepList.className = "story-visual__steps";
+
+    steps.forEach(({ number, timing, title: stepTitle, summary, prompt, instruction }) => {
+      const step = document.createElement("li");
+      const meta = document.createElement("div");
+      const count = document.createElement("span");
+      const time = document.createElement("small");
+      const stepHeading = document.createElement("h3");
+      const stepCopy = document.createElement("p");
+      const direction = document.createElement("div");
+      const directionLabel = document.createElement("span");
+      const directionCopy = document.createElement("strong");
+
+      meta.className = "story-step__meta";
+      direction.className = "story-step__direction";
+      count.textContent = number;
+      time.textContent = timing;
+      stepHeading.textContent = stepTitle;
+      stepCopy.textContent = summary;
+      directionLabel.textContent = prompt;
+      directionCopy.textContent = instruction;
+
+      meta.append(count, time);
+      direction.append(directionLabel, directionCopy);
+      step.append(meta, stepHeading, stepCopy, direction);
+      stepList.append(step);
+    });
+
+    section.append(intro, art, stepList);
+
+    return section;
   };
 
   const createRhythmPhotoStory = () => {
@@ -104,12 +133,16 @@
     section.className = "arrival-story";
 
     const figure = document.createElement("figure");
-    const image = document.createElement("img");
-    image.src = "/assets/visuals/arrival-map.svg";
-    image.alt = "Schematic location guide showing Kripa Revival Centre near Kempapura Circle in Hebbal";
-    image.loading = "lazy";
-    image.decoding = "async";
-    figure.append(image);
+    const map = document.createElement("iframe");
+    const mapQuery =
+      "Kripa Revival Centre, No. 1/1 Narayanswamy Building, Kempapura Main Road, Hebbal, Bengaluru 560024";
+    map.className = "arrival-story__map";
+    map.src = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`;
+    map.title = "Google Map showing Kripa Revival Centre in Hebbal, Bengaluru";
+    map.loading = "lazy";
+    map.referrerPolicy = "no-referrer-when-downgrade";
+    map.allowFullscreen = true;
+    figure.append(map);
 
     const copy = document.createElement("div");
     copy.className = "arrival-story__copy";
@@ -146,16 +179,70 @@
     const programmeIntro = document.querySelector(".programme-intro");
     const familyMessage = document.querySelector(".family-message");
 
-    if (journeyPreview && !journeyPreview.querySelector(".story-visual--home-journey")) {
-      journeyPreview.append(
+    if (journeyPreview && !document.querySelector(".story-visual--home-journey")) {
+      journeyPreview.insertAdjacentElement(
+        "afterend",
         createStoryVisual({
           className: "story-visual--home-journey",
-          src: "/assets/visuals/recovery-journey.svg",
-          mobileSrc: "/assets/visuals/recovery-journey-mobile.svg",
-          alt: "Illustrated four-stage pathway through treatment, therapy, awareness and planning",
+          images: [
+            {
+              src: "/assets/images/unit-2-room.jpg",
+              alt: "An unaltered photograph of a residential room at Kripa Revival Centre",
+              label: "Stabilise",
+            },
+            {
+              src: "/assets/images/group-therapy.jpg",
+              alt: "An unaltered photograph representing group therapy",
+              label: "Rebuild",
+            },
+            {
+              src: "/assets/images/individual-counselling.png",
+              alt: "An unaltered photograph representing individual counselling",
+              label: "Understand",
+            },
+            {
+              src: "/assets/images/relapse-prevention.jpg",
+              alt: "An unaltered photograph representing relapse prevention planning",
+              label: "Prepare",
+            },
+          ],
           kicker: "The full recovery arc",
           title: "Each phase prepares the ground for the next.",
-          body: "The programme moves deliberately from physical stability to lasting plans for life after residential care.",
+          body: "A four-month residential pathway moves deliberately from physical stability to a practical plan for recovery beyond Kripa.",
+          steps: [
+            {
+              number: "01",
+              timing: "Month 1",
+              title: "Treatment",
+              summary: "Medical review, detoxification and a protected daily routine establish safety.",
+              prompt: "Focus for this phase",
+              instruction: "Settle in, share relevant health information and begin participating in the daily programme.",
+            },
+            {
+              number: "02",
+              timing: "Month 2",
+              title: "Therapy",
+              summary: "Individual, group and 12-Step work begin to rebuild honesty, discipline and trust.",
+              prompt: "Focus for this phase",
+              instruction: "Attend consistently, speak openly and practise the tools introduced in sessions.",
+            },
+            {
+              number: "03",
+              timing: "Month 3",
+              title: "Awareness",
+              summary: "Triggers, thinking patterns and relationships are explored with greater clarity.",
+              prompt: "Focus for this phase",
+              instruction: "Recognise warning signs and build a personal set of healthier responses.",
+            },
+            {
+              number: "04",
+              timing: "Month 4",
+              title: "Planning",
+              summary: "Aftercare, support groups and family preparation turn learning into a plan for home.",
+              prompt: "Focus for this phase",
+              instruction: "Leave with agreed routines, support contacts and a written transition plan.",
+            },
+          ],
         }),
       );
     }
@@ -165,12 +252,65 @@
         "afterend",
         createStoryVisual({
           className: "story-visual--programme-journey",
-          src: "/assets/visuals/recovery-journey.svg",
-          mobileSrc: "/assets/visuals/recovery-journey-mobile.svg",
-          alt: "Illustrated four-stage pathway through treatment, therapy, awareness and planning",
+          images: [
+            {
+              src: "/assets/images/unit-2-room.jpg",
+              alt: "An unaltered photograph of a residential room at Kripa Revival Centre",
+              label: "Stabilise",
+            },
+            {
+              src: "/assets/images/group-therapy.jpg",
+              alt: "An unaltered photograph representing group therapy",
+              label: "Rebuild",
+            },
+            {
+              src: "/assets/images/individual-counselling.png",
+              alt: "An unaltered photograph representing individual counselling",
+              label: "Understand",
+            },
+            {
+              src: "/assets/images/relapse-prevention.jpg",
+              alt: "An unaltered photograph representing relapse prevention planning",
+              label: "Prepare",
+            },
+          ],
           kicker: "One connected programme",
           title: "Four phases, one deliberate direction.",
-          body: "The visual path makes the relationship between stabilisation, rebuilding, self-awareness and transition easier to understand at a glance.",
+          body: "The purpose of each month is clear: stabilise, rebuild, understand and prepare for continued recovery.",
+          steps: [
+            {
+              number: "01",
+              timing: "Month 1",
+              title: "Treatment",
+              summary: "Medical review, detoxification and a protected daily routine establish safety.",
+              prompt: "Focus for this phase",
+              instruction: "Settle in, share relevant health information and begin participating in the daily programme.",
+            },
+            {
+              number: "02",
+              timing: "Month 2",
+              title: "Therapy",
+              summary: "Individual, group and 12-Step work begin to rebuild honesty, discipline and trust.",
+              prompt: "Focus for this phase",
+              instruction: "Attend consistently, speak openly and practise the tools introduced in sessions.",
+            },
+            {
+              number: "03",
+              timing: "Month 3",
+              title: "Awareness",
+              summary: "Triggers, thinking patterns and relationships are explored with greater clarity.",
+              prompt: "Focus for this phase",
+              instruction: "Recognise warning signs and build a personal set of healthier responses.",
+            },
+            {
+              number: "04",
+              timing: "Month 4",
+              title: "Planning",
+              summary: "Aftercare, support groups and family preparation turn learning into a plan for home.",
+              prompt: "Focus for this phase",
+              instruction: "Leave with agreed routines, support contacts and a written transition plan.",
+            },
+          ],
         }),
       );
     }
@@ -180,12 +320,42 @@
         "afterend",
         createStoryVisual({
           className: "story-visual--family-support",
-          src: "/assets/visuals/family-support.svg",
-          mobileSrc: "/assets/visuals/family-support-mobile.svg",
-          alt: "Illustrated family support journey from conversation to clarity and participation",
+          images: [
+            {
+              src: "/assets/images/family-intervention.jpg",
+              alt: "An unaltered photograph representing a supported family conversation",
+              label: "Conversation, clarity and participation",
+            },
+          ],
           kicker: "A path for families",
-          title: "Support begins before every answer is known.",
-          body: "A confidential conversation can create clarity, identify the right options and help the family take part in a healthier recovery environment.",
+          title: "You do not need every answer before you begin.",
+          body: "Kripa helps families move from an urgent first conversation to clear decisions and practical participation in recovery.",
+          steps: [
+            {
+              number: "01",
+              timing: "Begin privately",
+              title: "Tell us what is happening",
+              summary: "A confidential first conversation helps the team understand the immediate situation.",
+              prompt: "Come prepared to share",
+              instruction: "Current concerns, previous treatment, relevant health information and the questions worrying you most.",
+            },
+            {
+              number: "02",
+              timing: "Choose the next step",
+              title: "Understand the options",
+              summary: "The team explains whether residential treatment or a guided intervention may be appropriate.",
+              prompt: "Leave with clarity about",
+              instruction: "Who will speak, what happens next and how the family can respond consistently.",
+            },
+            {
+              number: "03",
+              timing: "Take part steadily",
+              title: "Support recovery at home",
+              summary: "Education and counselling prepare the family for healthier life after residential care.",
+              prompt: "Practise together",
+              instruction: "Clearer communication, healthier boundaries and agreed support for the aftercare plan.",
+            },
+          ],
         }),
       );
     }
