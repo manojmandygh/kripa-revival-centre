@@ -1,9 +1,54 @@
 [build]
   publish = "."
 
+# --- Security headers ---
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "SAMEORIGIN"
+    Strict-Transport-Security = "max-age=31536000"
+    # STAGING ONLY: keeps the test site (kriparevival.netlify.app) out of search
+    # results while it is a demo. REMOVE this X-Robots-Tag line at go-live, once
+    # www.kriparevivalcentre.org is set as the primary custom domain.
+    X-Robots-Tag = "noindex"
+
+# --- 301 redirects: previous site's URLs -> new structure ---
+# Preserves SEO equity when the live domain migrates to this build. Verify against
+# a full crawl of the old site before go-live (add any blog-post slugs found).
+[[redirects]]
+  from = "/about-us"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/treatments"
+  to = "/care"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/gallery"
+  to = "/our-place"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Licenses-certificates-awards"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blogs"
+  to = "/"
+  status = 301
+  force = true
