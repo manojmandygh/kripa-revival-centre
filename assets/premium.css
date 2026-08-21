@@ -509,6 +509,27 @@ html body .contact-reassurance {
   background: var(--ink-deep);
 }
 
+html body .family-steps {
+  gap: 8px;
+  color: #fff;
+}
+
+html body .family-steps article {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html body .family-steps span {
+  color: var(--gold);
+}
+
+html body .family-steps h2 {
+  color: #fff;
+}
+
+html body .family-steps p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 html body .vision-grid article,
 html body .family-steps article,
 html body .contact-reassurance div {
@@ -1067,6 +1088,34 @@ html body .hero-note {
   html body .family-steps,
   html body .contact-reassurance {
     padding: 12px;
+  }
+
+  html body .family-steps {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  html body .family-steps article {
+    min-height: 240px;
+    padding: 42px 7vw;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  html body .family-steps article:hover {
+    transform: none;
+  }
+
+  html body .family-steps h2 {
+    margin: 22px 0 14px;
+    font-size: 31px;
+    line-height: 1.08;
+  }
+
+  html body .family-steps p {
+    max-width: 31rem;
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   html body .phase-sections {
