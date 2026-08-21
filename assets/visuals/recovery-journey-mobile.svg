@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1320" role="img" aria-labelledby="title desc">
+  <title id="title">The four stages of the Kripa recovery journey</title>
+  <desc id="desc">A vertical pathway through treatment, therapy, awareness and planning.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173f35"/><stop offset="1" stop-color="#082a24"/></linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c96843"/><stop offset=".5" stop-color="#e5bd7d"/><stop offset="1" stop-color="#f0d49e"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#031915" flood-opacity=".38"/></filter>
+  </defs>
+  <rect width="760" height="1320" rx="8" fill="url(#bg)"/>
+  <circle cx="685" cy="78" r="230" fill="none" stroke="#fff" stroke-opacity=".07"/>
+  <text x="58" y="72" fill="#e5bd7d" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="4">FOUR MONTHS · FOUR PHASES</text>
+  <text x="58" y="126" fill="#fffdf8" font-family="Georgia, serif" font-size="35">A connected path forward.</text>
+  <text x="58" y="165" fill="#fff" fill-opacity=".58" font-family="Arial, sans-serif" font-size="15">Stability · rebuilding · awareness · transition</text>
+  <path d="M210 300C510 350 510 500 300 575S180 800 485 835 570 1060 310 1150" fill="none" stroke="#fff" stroke-opacity=".1" stroke-width="20" stroke-linecap="round"/>
+  <path d="M210 300C510 350 510 500 300 575S180 800 485 835 570 1060 310 1150" fill="none" stroke="url(#path)" stroke-width="4" stroke-linecap="round"/>
+  <g filter="url(#shadow)"><circle cx="210" cy="300" r="60" fill="#fffaf0"/><path d="M182 300h56M210 272v56" stroke="#173f35" stroke-width="5" stroke-linecap="round"/></g>
+  <text x="304" y="280" fill="#e5bd7d" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">MONTH 01</text><text x="304" y="320" fill="#fffdf8" font-family="Georgia, serif" font-size="31">Treatment</text><text x="304" y="350" fill="#fff" fill-opacity=".58" font-family="Arial, sans-serif" font-size="14">Detox and stabilisation</text>
+  <g filter="url(#shadow)"><circle cx="300" cy="575" r="60" fill="#e5bd7d"/><path d="M273 575c14-24 40-24 54 0-14 25-40 25-54 0Z" fill="none" stroke="#173f35" stroke-width="4"/><circle cx="300" cy="575" r="7" fill="#173f35"/></g>
+  <text x="394" y="555" fill="#e5bd7d" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">MONTH 02</text><text x="394" y="595" fill="#fffdf8" font-family="Georgia, serif" font-size="31">Therapy</text><text x="394" y="625" fill="#fff" fill-opacity=".58" font-family="Arial, sans-serif" font-size="14">Rebuilding</text>
+  <g filter="url(#shadow)"><circle cx="485" cy="835" r="60" fill="#fffaf0"/><circle cx="485" cy="835" r="21" fill="none" stroke="#173f35" stroke-width="4"/><path d="M485 797v-11M485 884v-11M447 835h-11M534 835h-11" stroke="#173f35" stroke-width="4" stroke-linecap="round"/></g>
+  <text x="58" y="815" fill="#e5bd7d" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">MONTH 03</text><text x="58" y="855" fill="#fffdf8" font-family="Georgia, serif" font-size="31">Awareness</text><text x="58" y="885" fill="#fff" fill-opacity=".58" font-family="Arial, sans-serif" font-size="14">Self and relapse prevention</text>
+  <g filter="url(#shadow)"><circle cx="310" cy="1150" r="60" fill="#c96843"/><path d="M280 1162l21-22 17 16 26-31" fill="none" stroke="#fffaf0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <text x="404" y="1130" fill="#e5bd7d" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">MONTH 04</text><text x="404" y="1170" fill="#fffdf8" font-family="Georgia, serif" font-size="31">Planning</text><text x="404" y="1200" fill="#fff" fill-opacity=".58" font-family="Arial, sans-serif" font-size="14">Transition and aftercare</text>
+</svg>

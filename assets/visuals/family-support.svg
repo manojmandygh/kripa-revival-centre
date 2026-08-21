@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">The family support journey at Kripa</title>
+  <desc id="desc">Three connected stages move from a confidential conversation to clarity and participation in recovery.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8f2e8"/>
+      <stop offset="1" stop-color="#e9ddcb"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d1744e"/>
+      <stop offset="1" stop-color="#b85435"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#153f35" flood-opacity=".16"/>
+    </filter>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.2" fill="#153f35" opacity=".08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="760" rx="8" fill="url(#paper)"/>
+  <rect width="1600" height="760" rx="8" fill="url(#dots)"/>
+  <path d="M0 0h520c-70 136-85 259-44 370 37 102 32 232-42 390H0Z" fill="url(#warm)"/>
+  <circle cx="125" cy="620" r="270" fill="none" stroke="#fff" stroke-opacity=".13"/>
+  <circle cx="125" cy="620" r="190" fill="none" stroke="#fff" stroke-opacity=".1"/>
+
+  <text x="84" y="92" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="5">SUPPORT FOR FAMILIES</text>
+  <text x="84" y="165" fill="#fffaf0" font-family="Georgia, serif" font-size="44">Clarity begins</text>
+  <text x="84" y="218" fill="#fffaf0" font-family="Georgia, serif" font-size="44">with connection.</text>
+  <text x="84" y="274" fill="#fffaf0" fill-opacity=".78" font-family="Arial, Helvetica, sans-serif" font-size="16">A calm, honest path for families</text>
+  <text x="84" y="300" fill="#fffaf0" fill-opacity=".78" font-family="Arial, Helvetica, sans-serif" font-size="16">who may not know what to do next.</text>
+
+  <path d="M575 414 C720 260 815 260 945 414 S1170 568 1320 414" fill="none" stroke="#153f35" stroke-opacity=".13" stroke-width="18" stroke-linecap="round"/>
+  <path d="M575 414 C720 260 815 260 945 414 S1170 568 1320 414" fill="none" stroke="#d1744e" stroke-width="3" stroke-linecap="round"/>
+
+  <g filter="url(#shadow)">
+    <circle cx="620" cy="365" r="92" fill="#fffdf8"/>
+    <circle cx="620" cy="365" r="78" fill="none" stroke="#d7ad6d" stroke-width="2"/>
+    <path d="M582 333h76a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14h-35l-22 19 5-19h-24a14 14 0 0 1-14-14v-34a14 14 0 0 1 14-14Z" fill="none" stroke="#153f35" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+  <text x="620" y="500" text-anchor="middle" fill="#c46340" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3">01 · CONVERSATION</text>
+  <text x="620" y="542" text-anchor="middle" fill="#153f35" font-family="Georgia, serif" font-size="28">Talk confidentially</text>
+
+  <g filter="url(#shadow)">
+    <circle cx="960" cy="365" r="92" fill="#153f35"/>
+    <circle cx="960" cy="365" r="78" fill="none" stroke="#fff" stroke-opacity=".24" stroke-width="2"/>
+    <circle cx="960" cy="365" r="37" fill="none" stroke="#e5bd7d" stroke-width="4"/>
+    <path d="M960 329l14 31-14 41-14-41Z" fill="#e5bd7d"/>
+    <circle cx="960" cy="365" r="7" fill="#fffaf0"/>
+  </g>
+  <text x="960" y="500" text-anchor="middle" fill="#c46340" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3">02 · CLARITY</text>
+  <text x="960" y="542" text-anchor="middle" fill="#153f35" font-family="Georgia, serif" font-size="28">Understand the options</text>
+
+  <g filter="url(#shadow)">
+    <circle cx="1300" cy="365" r="92" fill="#fffdf8"/>
+    <circle cx="1300" cy="365" r="78" fill="none" stroke="#d7ad6d" stroke-width="2"/>
+    <circle cx="1277" cy="365" r="29" fill="none" stroke="#153f35" stroke-width="4"/>
+    <circle cx="1323" cy="365" r="29" fill="none" stroke="#c46340" stroke-width="4"/>
+    <path d="M1290 365h20" stroke="#d7ad6d" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="1300" y="500" text-anchor="middle" fill="#c46340" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3">03 · PARTICIPATION</text>
+  <text x="1300" y="542" text-anchor="middle" fill="#153f35" font-family="Georgia, serif" font-size="28">Take part in recovery</text>
+
+  <text x="1510" y="700" text-anchor="end" fill="#153f35" fill-opacity=".55" font-family="Arial, Helvetica, sans-serif" font-size="14">Support for the family is part of the recovery environment.</text>
+</svg>
