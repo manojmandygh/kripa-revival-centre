@@ -1,5 +1,13 @@
 (() => {
-  const createStoryVisual = ({ className, images, kicker, title, body, steps, representative }) => {
+  const createStoryVisual = ({
+    className,
+    images,
+    kicker,
+    title,
+    body,
+    steps = [],
+    representative,
+  }) => {
     const section = document.createElement("section");
     section.className = `story-visual ${className}`;
 
@@ -41,40 +49,42 @@
     disclosure.textContent =
       "Representative imagery — real centre photographs elsewhere on this site remain unaltered.";
 
-    const stepList = document.createElement("ol");
-    stepList.className = "story-visual__steps";
-
-    steps.forEach(({ number, timing, title: stepTitle, summary, prompt, instruction }) => {
-      const step = document.createElement("li");
-      const meta = document.createElement("div");
-      const count = document.createElement("span");
-      const time = document.createElement("small");
-      const stepHeading = document.createElement("h3");
-      const stepCopy = document.createElement("p");
-      const direction = document.createElement("div");
-      const directionLabel = document.createElement("span");
-      const directionCopy = document.createElement("strong");
-
-      meta.className = "story-step__meta";
-      direction.className = "story-step__direction";
-      count.textContent = number;
-      time.textContent = timing;
-      stepHeading.textContent = stepTitle;
-      stepCopy.textContent = summary;
-      directionLabel.textContent = prompt;
-      directionCopy.textContent = instruction;
-
-      meta.append(count, time);
-      direction.append(directionLabel, directionCopy);
-      step.append(meta, stepHeading, stepCopy, direction);
-      stepList.append(step);
-    });
-
     section.append(intro, art);
 
     if (representative) section.append(disclosure);
 
-    section.append(stepList);
+    if (steps.length) {
+      const stepList = document.createElement("ol");
+      stepList.className = "story-visual__steps";
+
+      steps.forEach(({ number, timing, title: stepTitle, summary, prompt, instruction }) => {
+        const step = document.createElement("li");
+        const meta = document.createElement("div");
+        const count = document.createElement("span");
+        const time = document.createElement("small");
+        const stepHeading = document.createElement("h3");
+        const stepCopy = document.createElement("p");
+        const direction = document.createElement("div");
+        const directionLabel = document.createElement("span");
+        const directionCopy = document.createElement("strong");
+
+        meta.className = "story-step__meta";
+        direction.className = "story-step__direction";
+        count.textContent = number;
+        time.textContent = timing;
+        stepHeading.textContent = stepTitle;
+        stepCopy.textContent = summary;
+        directionLabel.textContent = prompt;
+        directionCopy.textContent = instruction;
+
+        meta.append(count, time);
+        direction.append(directionLabel, directionCopy);
+        step.append(meta, stepHeading, stepCopy, direction);
+        stepList.append(step);
+      });
+
+      section.append(stepList);
+    }
 
     return section;
   };
@@ -87,6 +97,7 @@
     const photoStory = document.createElement("div");
     photoStory.className = "rhythm-photo-story";
     photoStory.setAttribute("aria-label", "A day at Kripa Revival Centre");
+    rhythm.classList.add("has-photo-story");
 
     const moments = [
       {
@@ -246,67 +257,18 @@
       programmeIntro.insertAdjacentElement(
         "afterend",
         createStoryVisual({
-          className: "story-visual--programme-journey",
+          className: "story-visual--programme-journey story-visual--condensed",
           images: [
             {
-              src: "/assets/images/recovery-treatment-representative.jpg",
-              alt: "Representative photograph of a calm admissions conversation",
-              label: "Stabilise",
-            },
-            {
               src: "/assets/images/recovery-therapy-representative.jpg",
-              alt: "Representative photograph of a small supported group conversation",
-              label: "Rebuild",
-            },
-            {
-              src: "/assets/images/recovery-awareness-representative.jpg",
-              alt: "Representative photograph of a resident reflecting in a journal",
-              label: "Understand",
-            },
-            {
-              src: "/assets/images/recovery-planning-representative.jpg",
-              alt: "Representative photograph of a resident and counsellor preparing an aftercare plan",
-              label: "Prepare",
+              alt: "Representative photograph of a small, supported recovery conversation",
+              label: "A structured path through recovery",
             },
           ],
           representative: true,
           kicker: "One connected programme",
           title: "Four phases, one deliberate direction.",
-          body: "The purpose of each month is clear: stabilise, rebuild, understand and prepare for continued recovery.",
-          steps: [
-            {
-              number: "01",
-              timing: "Month 1",
-              title: "Treatment",
-              summary: "Medical review, detoxification and a protected daily routine establish safety.",
-              prompt: "Focus for this phase",
-              instruction: "Settle in, share relevant health information and begin participating in the daily programme.",
-            },
-            {
-              number: "02",
-              timing: "Month 2",
-              title: "Therapy",
-              summary: "Individual, group and 12-Step work begin to rebuild honesty, discipline and trust.",
-              prompt: "Focus for this phase",
-              instruction: "Attend consistently, speak openly and practise the tools introduced in sessions.",
-            },
-            {
-              number: "03",
-              timing: "Month 3",
-              title: "Awareness",
-              summary: "Triggers, thinking patterns and relationships are explored with greater clarity.",
-              prompt: "Focus for this phase",
-              instruction: "Recognise warning signs and build a personal set of healthier responses.",
-            },
-            {
-              number: "04",
-              timing: "Month 4",
-              title: "Planning",
-              summary: "Aftercare, support groups and family preparation turn learning into a plan for home.",
-              prompt: "Focus for this phase",
-              instruction: "Leave with agreed routines, support contacts and a written transition plan.",
-            },
-          ],
+          body: "One residential experience moves from stability and therapeutic work to deeper awareness and a practical plan for life after Kripa. Each phase is explained in detail below.",
         }),
       );
     }
@@ -359,6 +321,130 @@
 
     createRhythmPhotoStory();
     createArrivalStory();
+  };
+
+  const initFamilyFitDivider = () => {
+    const fitSection = document.querySelector(".fit-section");
+
+    if (!fitSection || document.querySelector(".fit-divider")) return;
+
+    const divider = document.createElement("section");
+    divider.className = "fit-divider";
+    divider.innerHTML = `
+      <p class="section-kicker">Choosing the right level of care</p>
+      <h2>Is residential treatment the right next step?</h2>
+      <p>The right fit depends on time, readiness, clinical needs and the family’s ability to participate.</p>
+    `;
+    fitSection.insertAdjacentElement("beforebegin", divider);
+  };
+
+  const initAboutLegacy = () => {
+    const founder = document.querySelector(".founder-wide");
+
+    if (!founder) return;
+
+    const founderImage = founder.querySelector("img");
+    const founderBiography = founder.querySelector("div:last-child > p:last-child");
+
+    if (founderImage) {
+      founderImage.src = "/assets/images/benedict-reddy-founder-2026.jpg";
+      founderImage.alt = "Benedict Reddy, founder of Kripa Revival Centre";
+    }
+
+    if (founderBiography) {
+      founderBiography.textContent =
+        "Benedict founded Kripa in 2008. His belief that every person holds an innate capacity to change continues to shape the centre’s work.";
+    }
+
+    if (document.querySelector(".legacy-section")) return;
+
+    const legacy = document.createElement("section");
+    legacy.className = "legacy-section";
+    legacy.setAttribute("aria-labelledby", "legacy-heading");
+    legacy.innerHTML = `
+      <div class="legacy-section__intro">
+        <p class="section-kicker">The legacy continues</p>
+        <h2 id="legacy-heading">Carrying Kripa’s mission forward.</h2>
+        <p>Following Benedict Reddy’s passing, his son Leonard and daughter Mourine took on the responsibility of carrying Kripa’s mission forward while continuing the values on which the centre was founded.</p>
+      </div>
+      <div class="legacy-people">
+        <figure>
+          <img loading="lazy" decoding="async" src="/assets/images/leonard-oscar-emmanual.jpg" alt="Portrait of Leonard Oscar Emmanual">
+          <figcaption><span>Son</span><strong>Leonard Oscar Emmanual</strong></figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" decoding="async" src="/assets/images/mourine-leonie.jpg" alt="Portrait of Mourine Leonie">
+          <figcaption><span>Daughter</span><strong>Mourine Leonie</strong></figcaption>
+        </figure>
+      </div>
+    `;
+    founder.insertAdjacentElement("afterend", legacy);
+  };
+
+  const initCertificateLibrary = () => {
+    const standards = document.querySelector(".standards-section");
+
+    if (!standards || standards.querySelector(".certificate-library")) return;
+
+    const documents = [
+      {
+        href: "/assets/certificates/bbmp-trade-licence-2025-2030.pdf",
+        title: "BBMP trade licence",
+        detail: "Valid through 31 March 2030",
+      },
+      {
+        href: "/assets/certificates/kpme-registration-certificate.jpg",
+        title: "KPME registration",
+        detail: "Valid through 11 June 2029",
+      },
+      {
+        href: "/assets/certificates/fire-safety-certificate.pdf",
+        title: "Fire safety recommendation",
+        detail: "Issued 15 October 2025",
+      },
+      {
+        href: "/assets/certificates/mental-health-establishment-registration.pdf",
+        title: "Mental Health Establishment registration",
+        detail: "Supplied document — check renewal status",
+      },
+      {
+        href: "/assets/certificates/medical-waste-certificate.pdf",
+        title: "Medical waste certificate",
+        detail: "Supplied document — check renewal status",
+      },
+      {
+        href: "/assets/certificates/iso-certificate.pdf",
+        title: "ISO 9001:2015 certificate",
+        detail: "Supplied document — check renewal status",
+      },
+    ];
+
+    const library = document.createElement("div");
+    library.className = "certificate-library";
+    library.setAttribute("aria-labelledby", "certificate-library-heading");
+
+    const intro = document.createElement("div");
+    intro.className = "certificate-library__intro";
+    intro.innerHTML = `
+      <p class="section-kicker">Documents available to view</p>
+      <h3 id="certificate-library-heading">Supporting certificates and licences.</h3>
+      <p>These are copies supplied by the centre. Some documents show earlier validity dates; please open each file and confirm its current renewal status with the team.</p>
+    `;
+
+    const grid = document.createElement("div");
+    grid.className = "certificate-library__grid";
+
+    documents.forEach(({ href, title, detail }) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      link.innerHTML = `<strong>${title}</strong><span>${detail}</span><small>Open document <b aria-hidden="true">↗</b></small>`;
+      grid.append(link);
+    });
+
+    library.append(intro, grid);
+    standards.append(library);
   };
 
   const initReviewCrawl = () => {
@@ -429,6 +515,9 @@
 
   const init = () => {
     initVisualStorytelling();
+    initFamilyFitDivider();
+    initAboutLegacy();
+    initCertificateLibrary();
     initReviewCrawl();
     initScrollAwareActions();
   };
