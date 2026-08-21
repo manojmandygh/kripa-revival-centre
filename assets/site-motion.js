@@ -1,5 +1,5 @@
 (() => {
-  const createStoryVisual = ({ className, images, kicker, title, body, steps }) => {
+  const createStoryVisual = ({ className, images, kicker, title, body, steps, representative }) => {
     const section = document.createElement("section");
     section.className = `story-visual ${className}`;
 
@@ -36,6 +36,11 @@
       art.append(photo);
     });
 
+    const disclosure = document.createElement("p");
+    disclosure.className = "story-visual__disclosure";
+    disclosure.textContent =
+      "Representative imagery — real centre photographs elsewhere on this site remain unaltered.";
+
     const stepList = document.createElement("ol");
     stepList.className = "story-visual__steps";
 
@@ -65,7 +70,11 @@
       stepList.append(step);
     });
 
-    section.append(intro, art, stepList);
+    section.append(intro, art);
+
+    if (representative) section.append(disclosure);
+
+    section.append(stepList);
 
     return section;
   };
@@ -186,26 +195,12 @@
           className: "story-visual--home-journey",
           images: [
             {
-              src: "/assets/images/unit-2-room.jpg",
-              alt: "An unaltered photograph of a residential room at Kripa Revival Centre",
-              label: "Stabilise",
-            },
-            {
-              src: "/assets/images/group-therapy.jpg",
-              alt: "An unaltered photograph representing group therapy",
-              label: "Rebuild",
-            },
-            {
-              src: "/assets/images/individual-counselling.png",
-              alt: "An unaltered photograph representing individual counselling",
-              label: "Understand",
-            },
-            {
-              src: "/assets/images/relapse-prevention.jpg",
-              alt: "An unaltered photograph representing relapse prevention planning",
-              label: "Prepare",
+              src: "/assets/images/recovery-overview-representative.jpg",
+              alt: "Representative photograph of a recovery mentor and resident walking together in a garden",
+              label: "A steady way forward",
             },
           ],
+          representative: true,
           kicker: "The full recovery arc",
           title: "Each phase prepares the ground for the next.",
           body: "A four-month residential pathway moves deliberately from physical stability to a practical plan for recovery beyond Kripa.",
@@ -254,26 +249,27 @@
           className: "story-visual--programme-journey",
           images: [
             {
-              src: "/assets/images/unit-2-room.jpg",
-              alt: "An unaltered photograph of a residential room at Kripa Revival Centre",
+              src: "/assets/images/recovery-treatment-representative.jpg",
+              alt: "Representative photograph of a calm admissions conversation",
               label: "Stabilise",
             },
             {
-              src: "/assets/images/group-therapy.jpg",
-              alt: "An unaltered photograph representing group therapy",
+              src: "/assets/images/recovery-therapy-representative.jpg",
+              alt: "Representative photograph of a small supported group conversation",
               label: "Rebuild",
             },
             {
-              src: "/assets/images/individual-counselling.png",
-              alt: "An unaltered photograph representing individual counselling",
+              src: "/assets/images/recovery-awareness-representative.jpg",
+              alt: "Representative photograph of a resident reflecting in a journal",
               label: "Understand",
             },
             {
-              src: "/assets/images/relapse-prevention.jpg",
-              alt: "An unaltered photograph representing relapse prevention planning",
+              src: "/assets/images/recovery-planning-representative.jpg",
+              alt: "Representative photograph of a resident and counsellor preparing an aftercare plan",
               label: "Prepare",
             },
           ],
+          representative: true,
           kicker: "One connected programme",
           title: "Four phases, one deliberate direction.",
           body: "The purpose of each month is clear: stabilise, rebuild, understand and prepare for continued recovery.",
@@ -322,11 +318,12 @@
           className: "story-visual--family-support",
           images: [
             {
-              src: "/assets/images/family-intervention.jpg",
-              alt: "An unaltered photograph representing a supported family conversation",
+              src: "/assets/images/family-support-representative.jpg",
+              alt: "Representative photograph of an Indian family in a supported counselling conversation",
               label: "Conversation, clarity and participation",
             },
           ],
+          representative: true,
           kicker: "A path for families",
           title: "You do not need every answer before you begin.",
           body: "Kripa helps families move from an urgent first conversation to clear decisions and practical participation in recovery.",

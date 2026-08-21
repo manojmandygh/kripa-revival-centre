@@ -852,6 +852,10 @@ html body .story-visual--family-support .story-visual__art {
   grid-template-columns: 1fr;
 }
 
+html body .story-visual--home-journey .story-visual__art {
+  grid-template-columns: 1fr;
+}
+
 html body .story-visual__photo {
   position: relative;
   min-width: 0;
@@ -874,6 +878,11 @@ html body .story-visual--family-support .story-visual__photo img {
   object-position: center 46%;
 }
 
+html body .story-visual--home-journey .story-visual__photo img {
+  aspect-ratio: 16 / 7;
+  object-position: center 48%;
+}
+
 html body .story-visual__photo figcaption {
   position: absolute;
   right: 13px;
@@ -887,6 +896,17 @@ html body .story-visual__photo figcaption {
   font-weight: 800;
   letter-spacing: 0.18em;
   line-height: 1.3;
+  text-transform: uppercase;
+}
+
+html body .story-visual__disclosure {
+  margin: 10px 0 0;
+  color: #7a8a84;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+  text-align: right;
   text-transform: uppercase;
 }
 
@@ -1122,6 +1142,10 @@ html body .arrival-story address {
   }
 
   html body .story-visual--family-support .story-visual__art {
+    grid-template-columns: 1fr;
+  }
+
+  html body .story-visual--home-journey .story-visual__art {
     grid-template-columns: 1fr;
   }
 
@@ -1617,8 +1641,13 @@ html body .hero-note {
     font-size: 7px;
   }
 
-  html body .story-visual--family-support .story-visual__photo img {
+  html body .story-visual--family-support .story-visual__photo img,
+  html body .story-visual--home-journey .story-visual__photo img {
     aspect-ratio: 3 / 2;
+  }
+
+  html body .story-visual__disclosure {
+    text-align: left;
   }
 
   html body .story-visual__steps,
