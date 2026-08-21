@@ -6,7 +6,6 @@
     title,
     body,
     steps = [],
-    representative,
   }) => {
     const section = document.createElement("section");
     section.className = `story-visual ${className}`;
@@ -44,14 +43,7 @@
       art.append(photo);
     });
 
-    const disclosure = document.createElement("p");
-    disclosure.className = "story-visual__disclosure";
-    disclosure.textContent =
-      "Representative imagery — real centre photographs elsewhere on this site remain unaltered.";
-
     section.append(intro, art);
-
-    if (representative) section.append(disclosure);
 
     if (steps.length) {
       const stepList = document.createElement("ol");
@@ -211,7 +203,6 @@
               label: "A steady way forward",
             },
           ],
-          representative: true,
           kicker: "The full recovery arc",
           title: "Each phase prepares the ground for the next.",
           body: "A four-month residential pathway moves deliberately from physical stability to a practical plan for recovery beyond Kripa.",
@@ -265,7 +256,6 @@
               label: "A structured path through recovery",
             },
           ],
-          representative: true,
           kicker: "One connected programme",
           title: "Four phases, one deliberate direction.",
           body: "One residential experience moves from stability and therapeutic work to deeper awareness and a practical plan for life after Kripa. Each phase is explained in detail below.",
@@ -285,7 +275,6 @@
               label: "Conversation, clarity and participation",
             },
           ],
-          representative: true,
           kicker: "A path for families",
           title: "You do not need every answer before you begin.",
           body: "Kripa helps families move from an urgent first conversation to clear decisions and practical participation in recovery.",
@@ -439,7 +428,7 @@
       link.href = href;
       link.target = "_blank";
       link.rel = "noreferrer";
-      link.innerHTML = `<strong>${title}</strong><span>${detail}</span><small>Open document <b aria-hidden="true">↗</b></small>`;
+      link.innerHTML = `<strong>${title}</strong><span>${detail}</span><small>Open document</small>`;
       grid.append(link);
     });
 
@@ -513,6 +502,77 @@
     syncMode();
   };
 
+  const initScrollStopNavigation = () => {
+    const source = document.querySelector(".site-header");
+
+    if (!source || document.querySelector(".floating-header")) return;
+
+    const floating = source.cloneNode(true);
+    const desktopQuery = window.matchMedia("(min-width: 821px)");
+    let settleTimer;
+
+    floating.classList.add("floating-header");
+    floating.querySelector(".mobile-menu")?.remove();
+    floating.querySelector("nav")?.setAttribute("aria-label", "Quick navigation");
+    floating.setAttribute("aria-label", "Quick page navigation");
+    document.body.append(floating);
+
+    const hide = () => floating.classList.remove("is-visible");
+
+    const scheduleReveal = () => {
+      window.clearTimeout(settleTimer);
+      hide();
+
+      if (!desktopQuery.matches || window.scrollY < 320) return;
+
+      settleTimer = window.setTimeout(() => {
+        if (desktopQuery.matches && window.scrollY >= 320) {
+          floating.classList.add("is-visible");
+        }
+      }, 520);
+    };
+
+    const syncMode = () => {
+      window.clearTimeout(settleTimer);
+      hide();
+
+      if (desktopQuery.matches && window.scrollY >= 320) {
+        settleTimer = window.setTimeout(() => floating.classList.add("is-visible"), 180);
+      }
+    };
+
+    window.addEventListener("scroll", scheduleReveal, { passive: true });
+    desktopQuery.addEventListener?.("change", syncMode);
+    syncMode();
+  };
+
+  const initBackToTop = () => {
+    if (document.querySelector(".back-to-top")) return;
+
+    const button = document.createElement("button");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    button.className = "back-to-top";
+    button.type = "button";
+    button.setAttribute("aria-label", "Back to top");
+    button.innerHTML = '<span aria-hidden="true"></span>';
+    document.body.append(button);
+
+    const syncVisibility = () => {
+      button.classList.toggle("is-visible", window.scrollY >= 700);
+    };
+
+    button.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion.matches ? "auto" : "smooth",
+      });
+    });
+
+    window.addEventListener("scroll", syncVisibility, { passive: true });
+    syncVisibility();
+  };
+
   const init = () => {
     initVisualStorytelling();
     initFamilyFitDivider();
@@ -520,6 +580,8 @@
     initCertificateLibrary();
     initReviewCrawl();
     initScrollAwareActions();
+    initScrollStopNavigation();
+    initBackToTop();
   };
 
   if (document.readyState === "loading") {
