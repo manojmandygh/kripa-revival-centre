@@ -1,4 +1,4 @@
-KRIPA REVIVAL CENTRE — NETLIFY EXPORT
+KRIPA REVIVAL CENTRE - NETLIFY EXPORT
 
 This folder is a complete static website.
 
@@ -11,7 +11,7 @@ NETLIFY DROP
 The home page is index.html. Each additional page has its own folder and index.html.
 All photographs, the logo and the founder image are included locally.
 
-SEO LAUNCH CHECKLIST — USE ONLY WHEN THE CLIENT DOMAIN IS READY
+SEO LAUNCH CHECKLIST - USE ONLY WHEN THE CLIENT DOMAIN IS READY
 1. Confirm https://www.kriparevivalcentre.org is the primary Netlify domain and redirects consistently from every alternate hostname.
 2. Remove the global X-Robots-Tag = "noindex" line from netlify.toml in the production release.
 3. Confirm page canonical URLs and Open Graph URLs use the final preferred domain.

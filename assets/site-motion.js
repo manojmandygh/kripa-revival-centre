@@ -4,9 +4,9 @@
     images,
     kicker,
     title,
+    titleLines = [],
     body,
     steps = [],
-    representative,
   }) => {
     const section = document.createElement("section");
     section.className = `story-visual ${className}`;
@@ -19,7 +19,16 @@
     label.textContent = kicker;
 
     const heading = document.createElement("h2");
-    heading.textContent = title;
+    if (titleLines.length) {
+      heading.className = "display-title--two-lines";
+      titleLines.forEach((line, index) => {
+        const lineElement = document.createElement("span");
+        lineElement.textContent = index < titleLines.length - 1 ? `${line} ` : line;
+        heading.append(lineElement);
+      });
+    } else {
+      heading.textContent = title;
+    }
 
     const copy = document.createElement("p");
     copy.textContent = body;
@@ -44,14 +53,7 @@
       art.append(photo);
     });
 
-    const disclosure = document.createElement("p");
-    disclosure.className = "story-visual__disclosure";
-    disclosure.textContent =
-      "Representative imagery — real centre photographs elsewhere on this site remain unaltered.";
-
     section.append(intro, art);
-
-    if (representative) section.append(disclosure);
 
     if (steps.length) {
       const stepList = document.createElement("ol");
@@ -211,7 +213,6 @@
               label: "A steady way forward",
             },
           ],
-          representative: true,
           kicker: "The full recovery arc",
           title: "Each phase prepares the ground for the next.",
           body: "A four-month residential pathway moves deliberately from physical stability to a practical plan for recovery beyond Kripa.",
@@ -265,9 +266,9 @@
               label: "A structured path through recovery",
             },
           ],
-          representative: true,
           kicker: "One connected programme",
           title: "Four phases, one deliberate direction.",
+          titleLines: ["Four phases, one", "deliberate direction."],
           body: "One residential experience moves from stability and therapeutic work to deeper awareness and a practical plan for life after Kripa. Each phase is explained in detail below.",
         }),
       );
@@ -285,9 +286,9 @@
               label: "Conversation, clarity and participation",
             },
           ],
-          representative: true,
           kicker: "A path for families",
           title: "You do not need every answer before you begin.",
+          titleLines: ["You do not need every", "answer before you begin."],
           body: "Kripa helps families move from an urgent first conversation to clear decisions and practical participation in recovery.",
           steps: [
             {
@@ -332,7 +333,7 @@
     divider.className = "fit-divider";
     divider.innerHTML = `
       <p class="section-kicker">Choosing the right level of care</p>
-      <h2>Is residential treatment the right next step?</h2>
+      <h2 class="display-title--two-lines"><span>Is residential treatment </span><span>the right next step?</span></h2>
       <p>The right fit depends on time, readiness, clinical needs and the family’s ability to participate.</p>
     `;
     fitSection.insertAdjacentElement("beforebegin", divider);
@@ -364,7 +365,7 @@
     legacy.innerHTML = `
       <div class="legacy-section__intro">
         <p class="section-kicker">The legacy continues</p>
-        <h2 id="legacy-heading">Carrying Kripa’s mission forward.</h2>
+        <h2 id="legacy-heading" class="display-title--two-lines"><span>Carrying Kripa’s </span><span>mission forward.</span></h2>
         <p>Following Benedict Reddy’s passing, his son Leonard and daughter Mourine took on the responsibility of carrying Kripa’s mission forward while continuing the values on which the centre was founded.</p>
       </div>
       <div class="legacy-people">
@@ -405,17 +406,17 @@
       {
         href: "/assets/certificates/mental-health-establishment-registration.pdf",
         title: "Mental Health Establishment registration",
-        detail: "Supplied document — check renewal status",
+        detail: "Supplied document: check renewal status",
       },
       {
         href: "/assets/certificates/medical-waste-certificate.pdf",
         title: "Medical waste certificate",
-        detail: "Supplied document — check renewal status",
+        detail: "Supplied document: check renewal status",
       },
       {
         href: "/assets/certificates/iso-certificate.pdf",
         title: "ISO 9001:2015 certificate",
-        detail: "Supplied document — check renewal status",
+        detail: "Supplied document: check renewal status",
       },
     ];
 
@@ -428,7 +429,6 @@
     intro.innerHTML = `
       <p class="section-kicker">Documents available to view</p>
       <h3 id="certificate-library-heading">Supporting certificates and licences.</h3>
-      <p>These are copies supplied by the centre. Some documents show earlier validity dates; please open each file and confirm its current renewal status with the team.</p>
     `;
 
     const grid = document.createElement("div");
@@ -439,7 +439,7 @@
       link.href = href;
       link.target = "_blank";
       link.rel = "noreferrer";
-      link.innerHTML = `<strong>${title}</strong><span>${detail}</span><small>Open document <b aria-hidden="true">↗</b></small>`;
+      link.innerHTML = `<strong>${title}</strong><span>${detail}</span><small>Open document</small>`;
       grid.append(link);
     });
 
@@ -513,6 +513,77 @@
     syncMode();
   };
 
+  const initScrollStopNavigation = () => {
+    const source = document.querySelector(".site-header");
+
+    if (!source || document.querySelector(".floating-header")) return;
+
+    const floating = source.cloneNode(true);
+    const desktopQuery = window.matchMedia("(min-width: 821px)");
+    let settleTimer;
+
+    floating.classList.add("floating-header");
+    floating.querySelector(".mobile-menu")?.remove();
+    floating.querySelector("nav")?.setAttribute("aria-label", "Quick navigation");
+    floating.setAttribute("aria-label", "Quick page navigation");
+    document.body.append(floating);
+
+    const hide = () => floating.classList.remove("is-visible");
+
+    const scheduleReveal = () => {
+      window.clearTimeout(settleTimer);
+      hide();
+
+      if (!desktopQuery.matches || window.scrollY < 320) return;
+
+      settleTimer = window.setTimeout(() => {
+        if (desktopQuery.matches && window.scrollY >= 320) {
+          floating.classList.add("is-visible");
+        }
+      }, 520);
+    };
+
+    const syncMode = () => {
+      window.clearTimeout(settleTimer);
+      hide();
+
+      if (desktopQuery.matches && window.scrollY >= 320) {
+        settleTimer = window.setTimeout(() => floating.classList.add("is-visible"), 180);
+      }
+    };
+
+    window.addEventListener("scroll", scheduleReveal, { passive: true });
+    desktopQuery.addEventListener?.("change", syncMode);
+    syncMode();
+  };
+
+  const initBackToTop = () => {
+    if (document.querySelector(".back-to-top")) return;
+
+    const button = document.createElement("button");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    button.className = "back-to-top";
+    button.type = "button";
+    button.setAttribute("aria-label", "Back to top");
+    button.innerHTML = '<span aria-hidden="true"></span>';
+    document.body.append(button);
+
+    const syncVisibility = () => {
+      button.classList.toggle("is-visible", window.scrollY >= 700);
+    };
+
+    button.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion.matches ? "auto" : "smooth",
+      });
+    });
+
+    window.addEventListener("scroll", syncVisibility, { passive: true });
+    syncVisibility();
+  };
+
   const init = () => {
     initVisualStorytelling();
     initFamilyFitDivider();
@@ -520,6 +591,8 @@
     initCertificateLibrary();
     initReviewCrawl();
     initScrollAwareActions();
+    initScrollStopNavigation();
+    initBackToTop();
   };
 
   if (document.readyState === "loading") {
