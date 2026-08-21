@@ -1,5 +1,5 @@
 /*
- * Kripa Revival Centre — premium visual layer
+ * Kripa Revival Centre - premium visual layer
  *
  * This file intentionally changes presentation only. The centre's original
  * photography remains unedited, unfiltered and unanimated.
@@ -829,6 +829,29 @@ html body .story-visual__intro h2 {
   font-weight: 400;
   letter-spacing: -0.045em;
   line-height: 0.98;
+}
+
+html body .display-title--two-lines > span {
+  display: block;
+  white-space: nowrap;
+}
+
+html body .story-visual--condensed .story-visual__intro {
+  grid-template-columns: 0.42fr 1.28fr 0.82fr;
+}
+
+html body .story-visual--condensed .story-visual__intro h2 {
+  max-width: none;
+  font-size: clamp(36px, 3.5vw, 52px);
+}
+
+html body .story-visual--family-support .story-visual__intro {
+  grid-template-columns: 0.42fr 1.4fr 0.8fr;
+}
+
+html body .story-visual--family-support .story-visual__intro h2 {
+  max-width: none;
+  font-size: clamp(30px, 3vw, 42px);
 }
 
 html body .story-visual__intro > p:last-child {
@@ -2158,6 +2181,11 @@ html body .legacy-section__intro h2 {
   line-height: 0.98;
 }
 
+html body .legacy-section__intro h2.display-title--two-lines {
+  max-width: none;
+  font-size: clamp(45px, 4.3vw, 62px);
+}
+
 html body .legacy-section__intro > p:last-child {
   max-width: 40rem;
   margin: 30px 0 0;
@@ -2237,6 +2265,11 @@ html body .fit-divider h2 {
   line-height: 1;
 }
 
+html body .fit-divider h2.display-title--two-lines {
+  max-width: none;
+  font-size: clamp(32px, 3.25vw, 47px);
+}
+
 html body .fit-divider > p:last-child {
   max-width: 36rem;
   color: #62756e;
@@ -2252,7 +2285,7 @@ html body .certificate-library {
 
 html body .certificate-library__intro {
   display: grid;
-  grid-template-columns: 0.72fr 1fr 1fr;
+  grid-template-columns: 0.72fr 1.28fr;
   align-items: end;
   gap: clamp(28px, 5vw, 74px);
   margin-bottom: 34px;
@@ -2374,6 +2407,14 @@ html body .certificate-library__grid b {
 }
 
 @media (max-width: 560px) {
+  html body .story-visual--condensed .story-visual__intro h2 {
+    font-size: 31px;
+  }
+
+  html body .story-visual--family-support .story-visual__intro h2 {
+    font-size: 27px;
+  }
+
   html body .story-visual--condensed .story-visual__photo img {
     aspect-ratio: 3 / 2;
   }
@@ -2395,6 +2436,10 @@ html body .certificate-library__grid b {
     font-size: 43px;
   }
 
+  html body .legacy-section__intro h2.display-title--two-lines {
+    font-size: 39px;
+  }
+
   html body .legacy-people {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -2410,6 +2455,10 @@ html body .certificate-library__grid b {
 
   html body .fit-divider h2 {
     font-size: 42px;
+  }
+
+  html body .fit-divider h2.display-title--two-lines {
+    font-size: 30px;
   }
 
   html body .certificate-library {
@@ -2432,6 +2481,24 @@ html body .certificate-library__grid b {
 
   html body .certificate-library__grid a {
     min-height: 152px;
+  }
+}
+
+@media (max-width: 360px) {
+  html body .story-visual--condensed .story-visual__intro h2 {
+    font-size: 26px;
+  }
+
+  html body .story-visual--family-support .story-visual__intro h2 {
+    font-size: 23px;
+  }
+
+  html body .legacy-section__intro h2.display-title--two-lines {
+    font-size: 34px;
+  }
+
+  html body .fit-divider h2.display-title--two-lines {
+    font-size: 22px;
   }
 }
 

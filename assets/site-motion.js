@@ -4,6 +4,7 @@
     images,
     kicker,
     title,
+    titleLines = [],
     body,
     steps = [],
   }) => {
@@ -18,7 +19,16 @@
     label.textContent = kicker;
 
     const heading = document.createElement("h2");
-    heading.textContent = title;
+    if (titleLines.length) {
+      heading.className = "display-title--two-lines";
+      titleLines.forEach((line, index) => {
+        const lineElement = document.createElement("span");
+        lineElement.textContent = index < titleLines.length - 1 ? `${line} ` : line;
+        heading.append(lineElement);
+      });
+    } else {
+      heading.textContent = title;
+    }
 
     const copy = document.createElement("p");
     copy.textContent = body;
@@ -258,6 +268,7 @@
           ],
           kicker: "One connected programme",
           title: "Four phases, one deliberate direction.",
+          titleLines: ["Four phases, one", "deliberate direction."],
           body: "One residential experience moves from stability and therapeutic work to deeper awareness and a practical plan for life after Kripa. Each phase is explained in detail below.",
         }),
       );
@@ -277,6 +288,7 @@
           ],
           kicker: "A path for families",
           title: "You do not need every answer before you begin.",
+          titleLines: ["You do not need every", "answer before you begin."],
           body: "Kripa helps families move from an urgent first conversation to clear decisions and practical participation in recovery.",
           steps: [
             {
@@ -321,7 +333,7 @@
     divider.className = "fit-divider";
     divider.innerHTML = `
       <p class="section-kicker">Choosing the right level of care</p>
-      <h2>Is residential treatment the right next step?</h2>
+      <h2 class="display-title--two-lines"><span>Is residential treatment </span><span>the right next step?</span></h2>
       <p>The right fit depends on time, readiness, clinical needs and the family’s ability to participate.</p>
     `;
     fitSection.insertAdjacentElement("beforebegin", divider);
@@ -353,7 +365,7 @@
     legacy.innerHTML = `
       <div class="legacy-section__intro">
         <p class="section-kicker">The legacy continues</p>
-        <h2 id="legacy-heading">Carrying Kripa’s mission forward.</h2>
+        <h2 id="legacy-heading" class="display-title--two-lines"><span>Carrying Kripa’s </span><span>mission forward.</span></h2>
         <p>Following Benedict Reddy’s passing, his son Leonard and daughter Mourine took on the responsibility of carrying Kripa’s mission forward while continuing the values on which the centre was founded.</p>
       </div>
       <div class="legacy-people">
@@ -394,17 +406,17 @@
       {
         href: "/assets/certificates/mental-health-establishment-registration.pdf",
         title: "Mental Health Establishment registration",
-        detail: "Supplied document — check renewal status",
+        detail: "Supplied document: check renewal status",
       },
       {
         href: "/assets/certificates/medical-waste-certificate.pdf",
         title: "Medical waste certificate",
-        detail: "Supplied document — check renewal status",
+        detail: "Supplied document: check renewal status",
       },
       {
         href: "/assets/certificates/iso-certificate.pdf",
         title: "ISO 9001:2015 certificate",
-        detail: "Supplied document — check renewal status",
+        detail: "Supplied document: check renewal status",
       },
     ];
 
@@ -417,7 +429,6 @@
     intro.innerHTML = `
       <p class="section-kicker">Documents available to view</p>
       <h3 id="certificate-library-heading">Supporting certificates and licences.</h3>
-      <p>These are copies supplied by the centre. Some documents show earlier validity dates; please open each file and confirm its current renewal status with the team.</p>
     `;
 
     const grid = document.createElement("div");
