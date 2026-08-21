@@ -554,23 +554,82 @@ html body .contact-page {
   padding-block: 135px;
 }
 
+html body .standards-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(213, 170, 109, 0.18), transparent 28rem),
+    linear-gradient(135deg, #153d34 0%, #0e3028 58%, #0a2922 100%);
+}
+
+html body .standards-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -210px;
+  right: -130px;
+  width: 520px;
+  height: 520px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 0 70px rgba(255, 255, 255, 0.018);
+  pointer-events: none;
+}
+
+html body .standards-section .section-title {
+  align-items: end;
+  margin-bottom: 42px;
+  padding-bottom: 38px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+html body .standards-section .section-kicker {
+  color: #e2b676;
+}
+
+html body .standards-section .section-kicker::before {
+  background: #e2b676;
+}
+
+html body .standards-section h2 {
+  max-width: 15ch;
+  color: #fff;
+  font-size: clamp(48px, 5vw, 78px);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
 html body .check-grid {
-  gap: 10px;
+  gap: 12px;
   border: 0;
 }
 
 html body .check-grid div {
-  border: 1px solid var(--line);
-  min-height: 125px;
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: 0 8px 28px rgba(20, 48, 40, 0.04);
-  transition: transform 350ms var(--premium-ease), box-shadow 350ms, background 350ms;
+  position: relative;
+  min-height: 142px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.09);
+  backdrop-filter: blur(8px);
+  transition: transform 350ms var(--premium-ease), border-color 350ms, background 350ms;
 }
 
 html body .check-grid div:hover {
   transform: translateY(-5px);
-  background: #fff;
-  box-shadow: var(--premium-shadow-soft);
+  border-color: rgba(226, 182, 118, 0.5);
+  background: rgba(255, 255, 255, 0.095);
+}
+
+html body .check-grid span {
+  width: 34px;
+  height: 34px;
+  color: var(--ink-deep);
+  background: linear-gradient(145deg, #f2d39f, #d5aa6d);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.16);
 }
 
 html body .phase-sections {
@@ -740,6 +799,43 @@ html body .testimonials {
 html body .testi-scroll {
   gap: 18px;
   padding: 14px 12px 34px;
+}
+
+html body .testi-scroll.is-marquee {
+  display: block;
+  overflow: hidden;
+  scroll-snap-type: none;
+  scrollbar-width: none;
+}
+
+html body .testi-track {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  will-change: transform;
+  animation: testimonial-crawl var(--review-crawl-duration, 72s) linear infinite;
+}
+
+html body .testi-scroll.is-marquee:hover .testi-track,
+html body .testi-scroll.is-marquee:focus-within .testi-track,
+html body .testi-scroll.is-marquee:active .testi-track {
+  animation-play-state: paused;
+}
+
+html body .testi-scroll.is-marquee .testi-card {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+html body .testi-scroll.is-marquee .testi-card:hover {
+  transform: translateY(-7px);
+}
+
+@keyframes testimonial-crawl {
+  to {
+    transform: translate3d(calc(-50% - 9px), 0, 0);
+  }
 }
 
 html body .testi-card {
@@ -1128,6 +1224,86 @@ html body .hero-note {
     padding: 46px 6vw;
   }
 
+  html body .standards-section .section-title {
+    margin-bottom: 26px;
+    padding-bottom: 28px;
+  }
+
+  html body .standards-section h2 {
+    max-width: 12ch;
+    font-size: 43px;
+    line-height: 1;
+  }
+
+  html body .check-grid {
+    gap: 8px;
+  }
+
+  html body .check-grid div {
+    min-height: 100px;
+    padding: 24px 22px;
+    font-size: 16px;
+  }
+
+  html body .phase-list b,
+  html body .text-link span {
+    position: relative;
+    display: inline-grid;
+    flex: none;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(20, 69, 58, 0.24);
+    border-radius: 50%;
+    color: transparent;
+    background: rgba(20, 69, 58, 0.055);
+    font-size: 0;
+  }
+
+  html body .phase-list b::before,
+  html body .text-link span::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 1.5px;
+    background: var(--ink);
+    transform: rotate(-45deg);
+  }
+
+  html body .phase-list b::after,
+  html body .text-link span::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    margin: -5px -5px 0 0;
+    border-top: 1.5px solid var(--ink);
+    border-right: 1.5px solid var(--ink);
+  }
+
+  html body .phase-list a:hover b {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  html body .phase-list a:hover b::before {
+    background: #fff;
+  }
+
+  html body .phase-list a:hover b::after {
+    border-color: #fff;
+  }
+
+  html body .mobile-actions.is-scroll-aware {
+    transition: opacity 320ms ease, transform 520ms var(--premium-ease);
+  }
+
+  html body .mobile-actions.is-scroll-aware.is-scrolling {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(calc(100% + 30px));
+  }
+
   html body .testi-card {
     flex-basis: 84vw;
     min-height: 0;
@@ -1147,5 +1323,17 @@ html body .hero-note {
     animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  html body .testi-scroll.is-marquee {
+    overflow-x: auto;
+  }
+
+  html body .testi-track {
+    animation: none !important;
+  }
+
+  html body .testi-card[aria-hidden="true"] {
+    display: none;
   }
 }
