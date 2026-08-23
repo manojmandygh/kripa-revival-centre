@@ -369,12 +369,12 @@
         <p>Following Benedict Reddy’s passing, his son Leonard and daughter Mourine took on the responsibility of carrying Kripa’s mission forward while continuing the values on which the centre was founded.</p>
       </div>
       <div class="legacy-people">
-        <figure>
-          <img loading="lazy" decoding="async" src="/assets/images/leonard-oscar-emmanual.jpg" alt="Portrait of Leonard Oscar Emmanual">
+        <figure class="legacy-person legacy-person--leonard">
+          <div class="legacy-portrait"><img loading="lazy" decoding="async" src="/assets/images/leonard-oscar-emmanual.jpg" alt="Portrait of Leonard Oscar Emmanual"></div>
           <figcaption><span>Son</span><strong>Leonard Oscar Emmanual</strong></figcaption>
         </figure>
-        <figure>
-          <img loading="lazy" decoding="async" src="/assets/images/mourine-leonie.jpg" alt="Portrait of Mourine Leonie">
+        <figure class="legacy-person legacy-person--mourine">
+          <div class="legacy-portrait"><img loading="lazy" decoding="async" src="/assets/images/mourine-leonie-2026.webp" alt="Portrait of Mourine Leonie"></div>
           <figcaption><span>Daughter</span><strong>Mourine Leonie</strong></figcaption>
         </figure>
       </div>
@@ -428,7 +428,7 @@
     intro.className = "certificate-library__intro";
     intro.innerHTML = `
       <p class="section-kicker">Documents available to view</p>
-      <h3 id="certificate-library-heading">Supporting certificates and licences.</h3>
+      <h3 id="certificate-library-heading" class="certificate-library__title"><span>Supporting certificates </span><span>and licences.</span></h3>
     `;
 
     const grid = document.createElement("div");

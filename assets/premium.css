@@ -2208,12 +2208,27 @@ html body .legacy-people figure {
   box-shadow: var(--premium-shadow-soft);
 }
 
+html body .legacy-portrait {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--paper-deep);
+}
+
 html body .legacy-people img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   object-position: center 22%;
+}
+
+html body .legacy-person--leonard .legacy-portrait img {
+  transform: scale(1.1) !important;
+  transform-origin: center center;
+}
+
+html body .legacy-person--mourine .legacy-portrait img {
+  object-position: center 16%;
 }
 
 html body .legacy-people figcaption {
@@ -2309,6 +2324,15 @@ html body .certificate-library__intro h3 {
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.02;
+}
+
+html body .certificate-library__intro h3.certificate-library__title {
+  max-width: none;
+}
+
+html body .certificate-library__title > span {
+  display: block;
+  white-space: nowrap;
 }
 
 html body .certificate-library__intro > p:last-child {
@@ -2445,7 +2469,7 @@ html body .certificate-library__grid b {
     gap: 12px;
   }
 
-  html body .legacy-people img {
+  html body .legacy-portrait {
     aspect-ratio: 4 / 4.7;
   }
 
@@ -2479,6 +2503,10 @@ html body .certificate-library__grid b {
     grid-column: auto;
   }
 
+  html body .certificate-library__intro h3.certificate-library__title {
+    font-size: 30px;
+  }
+
   html body .certificate-library__grid a {
     min-height: 152px;
   }
@@ -2499,6 +2527,10 @@ html body .certificate-library__grid b {
 
   html body .fit-divider h2.display-title--two-lines {
     font-size: 22px;
+  }
+
+  html body .certificate-library__intro h3.certificate-library__title {
+    font-size: 25px;
   }
 }
 
@@ -2708,6 +2740,10 @@ html body .back-to-top span::after {
       linear-gradient(to top, rgba(4, 31, 26, 0.3), transparent 50%),
       url("/assets/images/about-nature-hero.jpg");
     background-position: 65% center;
+  }
+
+  html body .our-place-hero {
+    background-position: 70% center !important;
   }
 
   html body .back-to-top {
