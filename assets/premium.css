@@ -2742,6 +2742,10 @@ html body .back-to-top span::after {
     background-position: 65% center;
   }
 
+  html body .our-place-hero {
+    background-position: 70% center !important;
+  }
+
   html body .back-to-top {
     right: 18px;
     bottom: 84px;
