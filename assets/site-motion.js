@@ -428,7 +428,7 @@
     intro.className = "certificate-library__intro";
     intro.innerHTML = `
       <p class="section-kicker">Documents available to view</p>
-      <h3 id="certificate-library-heading">Supporting certificates and licences.</h3>
+      <h3 id="certificate-library-heading" class="certificate-library__title"><span>Supporting certificates </span><span>and licences.</span></h3>
     `;
 
     const grid = document.createElement("div");

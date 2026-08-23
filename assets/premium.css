@@ -2326,6 +2326,15 @@ html body .certificate-library__intro h3 {
   line-height: 1.02;
 }
 
+html body .certificate-library__intro h3.certificate-library__title {
+  max-width: none;
+}
+
+html body .certificate-library__title > span {
+  display: block;
+  white-space: nowrap;
+}
+
 html body .certificate-library__intro > p:last-child {
   max-width: 42rem;
   color: rgba(255, 255, 255, 0.65);
@@ -2494,6 +2503,10 @@ html body .certificate-library__grid b {
     grid-column: auto;
   }
 
+  html body .certificate-library__intro h3.certificate-library__title {
+    font-size: 30px;
+  }
+
   html body .certificate-library__grid a {
     min-height: 152px;
   }
@@ -2514,6 +2527,10 @@ html body .certificate-library__grid b {
 
   html body .fit-divider h2.display-title--two-lines {
     font-size: 22px;
+  }
+
+  html body .certificate-library__intro h3.certificate-library__title {
+    font-size: 25px;
   }
 }
 
