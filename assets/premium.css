@@ -2208,12 +2208,27 @@ html body .legacy-people figure {
   box-shadow: var(--premium-shadow-soft);
 }
 
+html body .legacy-portrait {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--paper-deep);
+}
+
 html body .legacy-people img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   object-position: center 22%;
+}
+
+html body .legacy-person--leonard .legacy-portrait img {
+  transform: scale(1.1) !important;
+  transform-origin: center center;
+}
+
+html body .legacy-person--mourine .legacy-portrait img {
+  object-position: center 16%;
 }
 
 html body .legacy-people figcaption {
@@ -2445,7 +2460,7 @@ html body .certificate-library__grid b {
     gap: 12px;
   }
 
-  html body .legacy-people img {
+  html body .legacy-portrait {
     aspect-ratio: 4 / 4.7;
   }
 
