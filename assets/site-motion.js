@@ -366,16 +366,12 @@
       <div class="legacy-section__intro">
         <p class="section-kicker">The legacy continues</p>
         <h2 id="legacy-heading" class="display-title--two-lines"><span>Carrying Kripa’s </span><span>mission forward.</span></h2>
-        <p>Following Benedict Reddy’s passing, his son Leonard and daughter Mourine took on the responsibility of carrying Kripa’s mission forward while continuing the values on which the centre was founded.</p>
+        <p>Following Benedict Reddy’s passing, his son Leonard took on the responsibility of carrying Kripa’s mission forward while continuing the values on which the centre was founded.</p>
       </div>
-      <div class="legacy-people">
+      <div class="legacy-people legacy-people--single">
         <figure class="legacy-person legacy-person--leonard">
           <div class="legacy-portrait"><img loading="lazy" decoding="async" src="/assets/images/leonard-oscar-emmanual.jpg" alt="Portrait of Leonard Oscar Emmanual"></div>
           <figcaption><span>Son</span><strong>Leonard Oscar Emmanual</strong></figcaption>
-        </figure>
-        <figure class="legacy-person legacy-person--mourine">
-          <div class="legacy-portrait"><img loading="lazy" decoding="async" src="/assets/images/mourine-leonie-2026.webp" alt="Portrait of Mourine Leonie"></div>
-          <figcaption><span>Daughter</span><strong>Mourine Leonie</strong></figcaption>
         </figure>
       </div>
     `;
