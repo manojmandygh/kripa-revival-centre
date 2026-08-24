@@ -2200,6 +2200,10 @@ html body .legacy-people {
   gap: 12px;
 }
 
+html body .legacy-people--single {
+  grid-template-columns: minmax(0, 440px);
+}
+
 html body .legacy-people figure {
   margin: 0;
   padding: 9px 9px 0;
@@ -2225,10 +2229,6 @@ html body .legacy-people img {
 html body .legacy-person--leonard .legacy-portrait img {
   transform: scale(1.1) !important;
   transform-origin: center center;
-}
-
-html body .legacy-person--mourine .legacy-portrait img {
-  object-position: center 16%;
 }
 
 html body .legacy-people figcaption {
