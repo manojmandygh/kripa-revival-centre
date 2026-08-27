@@ -580,7 +580,81 @@
     syncVisibility();
   };
 
+  const initMobileMenu = () => {
+    const menu = Array.from(document.querySelectorAll("details.mobile-menu")).find(
+      (node) => !node.closest(".floating-header")
+    );
+
+    if (!menu || menu.dataset.motionReady === "true") return;
+
+    const summary = menu.querySelector("summary");
+    const panel = menu.querySelector(":scope > div");
+
+    if (!summary || !panel) return;
+
+    menu.dataset.motionReady = "true";
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let closing = false;
+
+    const settleClose = () => {
+      if (!closing) return;
+      closing = false;
+      menu.classList.remove("is-closing");
+      menu.open = false;
+    };
+
+    // A native <details> removes its panel from the layout the instant it
+    // closes, so the collapse cannot be animated with CSS alone. We intercept
+    // the closing interaction, play an exit animation, then collapse. Opening
+    // keeps the native toggle, which the [open] CSS animates on its own.
+    const closeMenu = () => {
+      if (!menu.open || closing) return;
+
+      if (reduceMotion.matches) {
+        menu.open = false;
+        return;
+      }
+
+      closing = true;
+      menu.classList.add("is-closing");
+
+      let done = false;
+      const finish = (event) => {
+        if (event && event.target !== panel) return;
+        if (done) return;
+        done = true;
+        panel.removeEventListener("animationend", finish);
+        settleClose();
+      };
+
+      panel.addEventListener("animationend", finish);
+      window.setTimeout(finish, 420);
+    };
+
+    summary.addEventListener("click", (event) => {
+      if (menu.open) {
+        event.preventDefault();
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (menu.open && !closing && !menu.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) {
+        closeMenu();
+        summary.focus();
+      }
+    });
+  };
+
   const init = () => {
+    initMobileMenu();
     initVisualStorytelling();
     initFamilyFitDivider();
     initAboutLegacy();
