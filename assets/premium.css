@@ -612,6 +612,7 @@ html body .standards-intro {
 }
 
 html body .credentials-disclosure {
+  margin-top: 48px;
   border-top: 1px solid rgba(255, 255, 255, 0.17);
   border-bottom: 1px solid rgba(255, 255, 255, 0.17);
 }
@@ -2502,6 +2503,10 @@ html body .certificate-library__grid b {
 }
 
 @media (max-width: 560px) {
+  html body .credentials-disclosure {
+    margin-top: 36px;
+  }
+
   html body .credentials-disclosure summary {
     grid-template-columns: 1fr 40px;
     gap: 8px 18px;
