@@ -602,6 +602,73 @@ html body .standards-section h2 {
   text-wrap: balance;
 }
 
+html body .standards-intro {
+  align-self: end;
+  max-width: 42rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+html body .credentials-disclosure {
+  margin-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.17);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+html body .credentials-disclosure summary {
+  display: grid;
+  grid-template-columns: 1fr auto 44px;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 0;
+  color: #fff;
+  cursor: pointer;
+  list-style: none;
+}
+
+html body .credentials-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+html body .credentials-disclosure summary:focus-visible {
+  outline: 2px solid #e2b676;
+  outline-offset: 6px;
+}
+
+html body .credentials-disclosure summary > span {
+  font-family: var(--premium-serif);
+  font-size: clamp(24px, 2.25vw, 32px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+html body .credentials-disclosure summary small {
+  color: #e2b676;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+html body .credentials-disclosure summary b {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: var(--ink-deep);
+  background: linear-gradient(145deg, #f2d39f, #d5aa6d);
+  font: 400 25px/1 Arial, sans-serif;
+  transition: transform 250ms var(--premium-ease);
+}
+
+html body .credentials-disclosure[open] summary b {
+  transform: rotate(45deg);
+}
+
 html body .check-grid {
   gap: 12px;
   border: 0;
@@ -2293,8 +2360,8 @@ html body .fit-divider > p:last-child {
 }
 
 html body .certificate-library {
-  margin-top: 64px;
-  padding-top: 52px;
+  margin-top: 0;
+  padding: 40px 0 36px;
   border-top: 1px solid rgba(255, 255, 255, 0.17);
 }
 
@@ -2397,6 +2464,11 @@ html body .certificate-library__grid b {
 }
 
 @media (max-width: 820px) {
+  html body .standards-section .section-title {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   html body .legacy-section,
   html body .fit-divider {
     grid-template-columns: 1fr;
@@ -2431,6 +2503,25 @@ html body .certificate-library__grid b {
 }
 
 @media (max-width: 560px) {
+  html body .credentials-disclosure {
+    margin-top: 36px;
+  }
+
+  html body .credentials-disclosure summary {
+    grid-template-columns: 1fr 40px;
+    gap: 8px 18px;
+  }
+
+  html body .credentials-disclosure summary small {
+    grid-column: 1;
+  }
+
+  html body .credentials-disclosure summary b {
+    grid-area: 1 / 2 / 3;
+    width: 40px;
+    height: 40px;
+  }
+
   html body .story-visual--condensed .story-visual__intro h2 {
     font-size: 31px;
   }
@@ -2486,7 +2577,7 @@ html body .certificate-library__grid b {
   }
 
   html body .certificate-library {
-    margin-top: 48px;
+    margin-top: 0;
     padding-top: 40px;
   }
 
