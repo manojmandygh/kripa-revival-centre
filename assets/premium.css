@@ -473,7 +473,7 @@ html body .phase-list a {
   min-height: 94px;
   padding-inline: 18px;
   overflow: hidden;
-  transition: color 350ms, padding 350ms var(--premium-ease), background 350ms;
+  transition: color 620ms cubic-bezier(0.22, 0.61, 0.36, 1), padding 620ms cubic-bezier(0.22, 0.61, 0.36, 1), background 620ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 html body .phase-list a::before {
@@ -481,15 +481,15 @@ html body .phase-list a::before {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--ink-deep);
+  background: var(--ink);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 500ms var(--premium-ease);
+  transition: transform 850ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 html body .phase-list a:hover {
   color: #fff;
-  padding-left: 28px;
+  padding-left: 22px;
   background: transparent;
 }
 
