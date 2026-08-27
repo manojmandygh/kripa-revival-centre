@@ -380,8 +380,9 @@
 
   const initCertificateLibrary = () => {
     const standards = document.querySelector(".standards-section");
+    const disclosure = standards?.querySelector(".credentials-disclosure");
 
-    if (!standards || standards.querySelector(".certificate-library")) return;
+    if (!disclosure || disclosure.querySelector(".certificate-library")) return;
 
     const documents = [
       {
@@ -418,14 +419,7 @@
 
     const library = document.createElement("div");
     library.className = "certificate-library";
-    library.setAttribute("aria-labelledby", "certificate-library-heading");
-
-    const intro = document.createElement("div");
-    intro.className = "certificate-library__intro";
-    intro.innerHTML = `
-      <p class="section-kicker">Documents available to view</p>
-      <h3 id="certificate-library-heading" class="certificate-library__title"><span>Supporting certificates </span><span>and licences.</span></h3>
-    `;
+    library.setAttribute("aria-label", "Supporting licences and certifications");
 
     const grid = document.createElement("div");
     grid.className = "certificate-library__grid";
@@ -439,8 +433,8 @@
       grid.append(link);
     });
 
-    library.append(intro, grid);
-    standards.append(library);
+    library.append(grid);
+    disclosure.append(library);
   };
 
   const initReviewCrawl = () => {
