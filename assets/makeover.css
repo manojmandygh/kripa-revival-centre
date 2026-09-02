@@ -274,3 +274,15 @@ html{scroll-padding-top:150px}
 .image-band img{width:100%;height:440px;object-fit:cover;display:block}
 .image-band figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,#051f19b8,transparent);color:#fff;padding:60px 6vw 22px;font:400 clamp(20px,2.2vw,28px)/1.3 Georgia,'Times New Roman',serif;letter-spacing:-.01em}
 @media(max-width:760px){.image-band img{height:280px}.track-img{height:150px}}
+
+
+/* ===== v6: scroll-jitter fix, back-to-top placement, uniform nav color ===== */
+/* keep Chrome's scroll anchoring from re-adjusting scroll while the topbar folds */
+body{overflow-anchor:none}
+/* back-to-top sits above the WhatsApp launcher, and below the open chat panel */
+html body .back-to-top{bottom:92px;z-index:80}
+@media(max-width:560px){html body .back-to-top{bottom:146px}}
+/* dropdown parents keep the same color as every other menu item, open or closed */
+.desktop-nav .nav-item>button[aria-expanded=true]{opacity:.8}
+.desktop-nav .nav-item.open>button{opacity:.8}
+.desktop-nav .nav-item>button:hover,.desktop-nav .nav-item.open>button:hover{opacity:1}

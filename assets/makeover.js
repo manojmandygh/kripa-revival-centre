@@ -211,4 +211,9 @@
 
 
 /* v2: fold the topbar into one pinned menu once the visitor starts reading */
-addEventListener('scroll',function(){document.documentElement.classList.toggle('scrolled',scrollY>80)},{passive:true});
+/* v6: hysteresis - fold the topbar only well past the header, reopen only near the top;
+   without a dead zone the fold/unfold fought the browser's scroll anchoring and the menu vibrated */
+(function(){var folded=false;
+addEventListener('scroll',function(){var y=window.scrollY||0;
+if(!folded&&y>140){folded=true;document.documentElement.classList.add('scrolled');}
+else if(folded&&y<50){folded=false;document.documentElement.classList.remove('scrolled');}},{passive:true});})();
