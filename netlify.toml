@@ -11,7 +11,7 @@
     Strict-Transport-Security = "max-age=31536000"
     # Restrict executable content to this site while retaining the inline
     # presentation styles used by the static export and the contact-page map.
-    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; frame-src https://www.google.com; media-src 'self'; manifest-src 'self'; worker-src 'none'; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://formsubmit.co; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://formsubmit.co; frame-src https://www.google.com; media-src 'self'; manifest-src 'self'; worker-src 'none'; upgrade-insecure-requests"
     # The site does not request device sensors, capture devices, payments or
     # geolocation. The embedded map does not require these browser APIs.
     Permissions-Policy = "accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
@@ -42,19 +42,55 @@
   force = true
 
 [[redirects]]
-  from = "/gallery"
-  to = "/our-place/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/Licenses-certificates-awards"
-  to = "/about/"
+  to = "/licenses/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/blogs"
-  to = "/"
+  to = "/qa/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/types-of-interventions"
+  to = "/qa/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/kripa-during-the-pandemic"
+  to = "/qa/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/succesful-treatment-post-an-intervention"
+  to = "/qa/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/additional-counseling"
+  to = "/care/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/others"
+  to = "/programme/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/social-activities"
+  to = "/about/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/counselling"
+  to = "/care/"
   status = 301
   force = true

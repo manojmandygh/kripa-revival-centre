@@ -1,6 +1,6 @@
 # Kripa Revival Centre
 
-> Kripa Revival Centre is a licensed residential de-addiction and rehabilitation centre in Hebbal, Bengaluru. Since 2008, it has supported individuals and families through medical care, counselling, family involvement, community living and a structured 12-Step programme.
+> Kripa Revival Centre is a licensed residential de-addiction and rehabilitation centre in Hebbal, Bengaluru. For 18 years (since 2008), it has supported individuals and families through medical care, counselling, family involvement, community living and a structured 12-Step programme.
 
 ## Key pages
 
@@ -10,6 +10,11 @@
 - [Care](https://www.kriparevivalcentre.org/care/): Medical, therapeutic and family-support services.
 - [Our place](https://www.kriparevivalcentre.org/our-place/): Residential environment, facilities and daily rhythm.
 - [Families](https://www.kriparevivalcentre.org/families/): Guidance for families considering residential treatment.
+- [Licenses & Certificates](https://www.kriparevivalcentre.org/licenses/): Verifiable licences, registrations, certificates and awards.
+- [Gallery](https://www.kriparevivalcentre.org/gallery/): Photographs of Unit 1 and Unit 2.
+- [Q&A](https://www.kriparevivalcentre.org/qa/): Plain answers to common family questions (formerly the blog).
+- [Alcohol addiction](https://www.kriparevivalcentre.org/alcohol-addiction/): Signs, and how treatment works.
+- [Drug addiction](https://www.kriparevivalcentre.org/drug-addiction/): Signs, and how treatment works.
 - [Contact](https://www.kriparevivalcentre.org/contact/): Telephone, WhatsApp, email, address and map.
 - [Privacy policy](https://www.kriparevivalcentre.org/privacy/): How enquiries and personal information are handled.
 - [Terms of use](https://www.kriparevivalcentre.org/terms/): Conditions for using the website and its information.
@@ -32,9 +37,13 @@
 
 ## Contact
 
-- Telephone: +91 98453 10070
+- Telephone: +91 98453 10070 (also +91 98456 80164, +91 97404 88111)
 - Email: info@kriparevivalcentre.org
 - Address: No. 1/1, Narayanswamy Building, Kempapura Circle, Kempapura Main Road, Dasarahalli H.A. Farm Post, Hebbal, Bengaluru 560024, India
 - Open 24 hours, every day of the year
 
 For emergencies in India, call 112 or go to the nearest emergency department.
+
+## Enquiries
+
+- The site has a built-in enquiry chat (bottom-right on every page) that asks what the visitor needs help with, collects their name and phone number, and emails the details to info@kriparevivalcentre.org.
