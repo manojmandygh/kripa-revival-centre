@@ -44,10 +44,11 @@
 /* --- Mobile menu with nested groups --- */
 .masthead .mobile-menu>div{width:min(300px,84vw);max-height:76vh;overflow:auto}
 .masthead .mobile-menu details.m-sub{border-bottom:1px solid var(--line)}
-.masthead .mobile-menu details.m-sub>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:11px;font-size:13px;font-weight:700;color:var(--ink)}
+.masthead .mobile-menu details.m-sub>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:13px 11px;font-size:14px;font-weight:700;color:var(--ink)}
 .masthead .mobile-menu details.m-sub>summary::-webkit-details-marker{display:none}
-.masthead .mobile-menu details.m-sub>summary::after{content:"";width:7px;height:7px;border-right:2px solid var(--coral);border-bottom:2px solid var(--coral);transform:rotate(45deg)}
-.masthead .mobile-menu details.m-sub[open]>summary::after{transform:rotate(225deg)}
+.masthead .mobile-menu details.m-sub>summary::after{content:"";flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--paper-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9.5l6 6 6-6' stroke='%23cc663d' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat;transition:transform .2s}
+.masthead .mobile-menu details.m-sub[open]>summary::after{transform:rotate(180deg)}
+.mobile-menu details.m-sub[open]>summary{color:var(--coral)}
 .masthead .mobile-menu details.m-sub a{padding:10px 11px 10px 24px;font-size:12.5px;border-bottom:0}
 .masthead .mobile-menu details.m-sub a:last-child{padding-bottom:14px}
 .masthead .mobile-menu .m-call{background:var(--coral);color:#fff !important;border-radius:10px;text-align:center;font-weight:700;margin-top:10px}
