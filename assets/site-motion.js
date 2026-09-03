@@ -103,7 +103,7 @@
 
     const moments = [
       {
-        src: "/assets/images/unit-2-room.jpg",
+        src: "/assets/images/unit-1-room.jpg",
         alt: "An unaltered photograph of a residential room at Kripa Revival Centre",
         label: "Rest and readiness",
         detail: "A calm residential setting",
@@ -208,7 +208,7 @@
           className: "story-visual--home-journey",
           images: [
             {
-              src: "/assets/images/recovery-overview-representative.jpg",
+              src: "/assets/images/home-journey-arc.jpg",
               alt: "Representative photograph of a recovery mentor and resident walking together in a garden",
               label: "A steady way forward",
             },

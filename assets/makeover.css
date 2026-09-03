@@ -19,13 +19,13 @@
 
 /* --- Masthead: sticky topbar + header --- */
 .masthead{position:sticky;top:0;z-index:70;box-shadow:0 6px 24px #0a2e2540}
-.masthead .site-header{position:static;background:var(--ink-deep);padding:14px 4.5vw;grid-template-columns:110px 1fr auto}
-.masthead .brand{width:112px;height:112px}
-.masthead .brand img{width:96px;height:105px}
+.masthead .site-header{position:static;background:var(--ink-deep);padding:14px 4.5vw;grid-template-columns:140px 1fr auto}
+.masthead .brand{width:136px;height:136px}
+.masthead .brand img{width:100px;height:110px}
 .masthead .desktop-nav{font-size:15.5px;font-weight:600;gap:clamp(14px,1.6vw,26px)}
 .masthead .header-call{background:var(--coral);border-color:var(--coral)}
-@media(max-width:1100px){.masthead .site-header{grid-template-columns:100px 1fr}.masthead .desktop-nav,.masthead .header-call{display:none}.masthead .mobile-menu{display:block}}
-@media(max-width:1100px){.masthead .brand{width:84px;height:84px}.masthead .brand img{width:68px;height:74px}}
+@media(max-width:1100px){.masthead .site-header{grid-template-columns:96px 1fr}.masthead .desktop-nav,.masthead .header-call{display:none}.masthead .mobile-menu{display:block}}
+@media(max-width:1100px){.masthead .brand{width:92px;height:92px}.masthead .brand img{width:70px;height:77px}}
 
 /* --- Desktop dropdown menus --- */
 .desktop-nav .nav-item{position:relative;display:flex;align-items:center}
