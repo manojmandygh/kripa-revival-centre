@@ -2539,7 +2539,7 @@ html body .about-hero-nature {
   background:
     linear-gradient(90deg, rgba(4, 36, 30, 0.94) 0%, rgba(4, 36, 30, 0.76) 43%, rgba(4, 36, 30, 0.38) 68%, rgba(4, 36, 30, 0.08) 100%),
     linear-gradient(to top, rgba(4, 31, 26, 0.28), transparent 48%),
-    url("/assets/images/about-nature-hero.jpg");
+    url("/assets/images/about-hero.jpg");
   background-position: center 55%;
   background-size: cover;
 }
@@ -2738,7 +2738,7 @@ html body .back-to-top span::after {
     background:
       linear-gradient(90deg, rgba(4, 36, 30, 0.9) 0%, rgba(4, 36, 30, 0.7) 64%, rgba(4, 36, 30, 0.3) 100%),
       linear-gradient(to top, rgba(4, 31, 26, 0.3), transparent 50%),
-      url("/assets/images/about-nature-hero.jpg");
+      url("/assets/images/about-hero.jpg");
     background-position: 65% center;
   }
 
