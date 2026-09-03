@@ -75,7 +75,7 @@ html body .trust-strip strong,
 html body .phase-number,
 html body .phase-main h2,
 html body .contact-big,
-html body .footer-contact a:first-child {
+html body .footer-contact a[href^="mailto:"] {
   font-family: var(--premium-serif);
   font-kerning: normal;
 }
