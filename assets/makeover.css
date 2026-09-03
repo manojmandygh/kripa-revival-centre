@@ -20,12 +20,12 @@
 /* --- Masthead: sticky topbar + header --- */
 .masthead{position:sticky;top:0;z-index:70;box-shadow:0 6px 24px #0a2e2540}
 .masthead .site-header{position:static;background:var(--ink-deep);padding:14px 4.5vw;grid-template-columns:110px 1fr auto}
-.masthead .brand{width:86px;height:86px}
-.masthead .brand img{width:62px;height:68px}
+.masthead .brand{width:112px;height:112px}
+.masthead .brand img{width:96px;height:105px}
 .masthead .desktop-nav{font-size:15.5px;font-weight:600;gap:clamp(14px,1.6vw,26px)}
 .masthead .header-call{background:var(--coral);border-color:var(--coral)}
 @media(max-width:1100px){.masthead .site-header{grid-template-columns:100px 1fr}.masthead .desktop-nav,.masthead .header-call{display:none}.masthead .mobile-menu{display:block}}
-@media(max-width:1100px){.masthead .brand{width:64px;height:64px}.masthead .brand img{width:46px;height:50px}}
+@media(max-width:1100px){.masthead .brand{width:84px;height:84px}.masthead .brand img{width:68px;height:74px}}
 
 /* --- Desktop dropdown menus --- */
 .desktop-nav .nav-item{position:relative;display:flex;align-items:center}
@@ -225,8 +225,8 @@ html{scroll-padding-top:150px}
 
 /* topbar stays one row on laptops - address yields first */
 @media(max-width:1400px){.topbar .tb-address{display:none}}
-@media(max-width:1400px){.topbar .tb-phones a:nth-child(3){display:none}}
-@media(max-width:820px){.topbar .tb-phones a:nth-child(3){display:inline-flex}}
+@media(max-width:1400px){.topbar .tb-phones a:nth-child(n+3){display:none}}
+@media(max-width:820px){.topbar .tb-phones a:nth-child(3){display:inline-flex}.topbar .tb-phones a:nth-child(4){display:none}}
 
 /* The original site's JS clones the header into a floating pill on scroll;
    the blended sticky masthead replaces it - suppress the clone */
@@ -286,3 +286,15 @@ html body .back-to-top{bottom:92px;z-index:80}
 .desktop-nav .nav-item>button[aria-expanded=true]{opacity:.8}
 .desktop-nav .nav-item.open>button{opacity:.8}
 .desktop-nav .nav-item>button:hover,.desktop-nav .nav-item.open>button:hover{opacity:1}
+
+/* v7: daily schedule + what we provide */
+.day-timeline{list-style:none;margin:0;padding:0;position:relative}
+.day-timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.day-timeline li{position:relative;padding:0 0 18px 34px}
+.day-timeline li:last-child{padding-bottom:0}
+.day-timeline li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:50%;background:var(--white);border:2px solid var(--coral)}
+.day-timeline .dt-time{display:block;font:400 16px Georgia,serif;color:var(--coral);margin-bottom:3px}
+.day-timeline .dt-act{display:block;font-size:14px;color:var(--ink)}
+.provide-list{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 22px}
+.provide-list li{position:relative;padding-left:24px;font-size:14px;color:var(--ink)}
+.provide-list li::before{content:"";position:absolute;left:0;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral)}
