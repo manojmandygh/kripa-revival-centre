@@ -314,3 +314,13 @@ html body .back-to-top{bottom:92px;z-index:80}
 .testi-card.t-sm:nth-child(4n+2){background:#d3a76722;border:1px solid #d3a76755}
 @media (max-width:1000px){.testi-masonry{columns:2}}
 @media (max-width:620px){.testi-masonry{columns:1}}
+
+/* Compact masthead on scroll (desktop): bar and logo shrink smoothly, nav stays centered and sharp */
+.masthead .site-header{transition:padding .35s ease}
+.masthead .brand{transition:width .35s ease,height .35s ease}
+.masthead .brand img{transition:width .35s ease,height .35s ease}
+@media(min-width:1101px){
+html.scrolled .masthead .site-header{padding:6px 4.5vw}
+html.scrolled .masthead .brand{width:54px;height:54px}
+html.scrolled .masthead .brand img{width:38px;height:42px}
+}
