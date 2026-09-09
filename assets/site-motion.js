@@ -448,6 +448,9 @@
 
     if (!viewport || viewport.dataset.crawlReady === "true") return;
 
+    // On mobile the cards are stacked vertically by CSS; the crawl would leave the section looking blank.
+    if (window.matchMedia("(max-width: 760px)").matches) return;
+
     const reviews = Array.from(viewport.children).filter((item) =>
       item.classList.contains("testi-card"),
     );
