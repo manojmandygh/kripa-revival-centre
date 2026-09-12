@@ -218,4 +218,3 @@ addEventListener('scroll',function(){var y=window.scrollY||0;
 if(!folded&&y>140){folded=true;document.documentElement.classList.add('scrolled');}
 else if(folded&&y<50){folded=false;document.documentElement.classList.remove('scrolled');}},{passive:true});})();
 
-
