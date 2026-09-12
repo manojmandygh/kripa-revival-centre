@@ -38,7 +38,7 @@
 
   /* ---------- enquiry bot ---------- */
   var CENTRE_EMAIL = "info@kriparevivalcentre.org";
-  var WA_NUMBER = "919485310070";
+  var WA_NUMBER = "919845310070";
   var FORM_ENDPOINT = "https://formsubmit.co/ajax/" + CENTRE_EMAIL;
 
   var CATEGORIES = {
@@ -217,3 +217,4 @@
 addEventListener('scroll',function(){var y=window.scrollY||0;
 if(!folded&&y>140){folded=true;document.documentElement.classList.add('scrolled');}
 else if(folded&&y<50){folded=false;document.documentElement.classList.remove('scrolled');}},{passive:true});})();
+
