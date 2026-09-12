@@ -103,7 +103,7 @@
       other: "Happy to help."
     };
     typing(function () {
-      addMsg(replies[key] + "\n\nPlease share a few details and our team will contact you. You can also call us any time on +91 94853 10070 - we are open 24/7.", "bot");
+      addMsg(replies[key] + "\n\nPlease share a few details and our team will contact you. You can also call us any time on +91 98453 10070 - we are open 24/7.", "bot");
       showForm();
     }, 800);
   }
@@ -150,7 +150,7 @@
       if (!r.ok) throw new Error("send failed");
       addMsg(name + ", " + phone, "user");
       typing(function () {
-        addMsg("Thank you, " + name + ". Your enquiry has been sent to our team. We usually respond quickly - and we are available 24/7 on +91 94853 10070 if it cannot wait.", "bot");
+        addMsg("Thank you, " + name + ". Your enquiry has been sent to our team. We usually respond quickly - and we are available 24/7 on +91 98453 10070 if it cannot wait.", "bot");
         showAlt(name, phone, msg, catLabel);
       }, 700);
       f.remove();
@@ -185,7 +185,7 @@
         addMsg("Namaste. You have reached Kripa Revival Centre, Bengaluru. This chat is confidential.", "bot");
         state.step = "details"; state.category = category;
         typing(function () {
-          addMsg("You asked about: " + CATEGORIES[category] + ".\n\nPlease share a few details and our team will contact you. You can also call us any time on +91 94853 10070 - we are open 24/7.", "bot");
+          addMsg("You asked about: " + CATEGORIES[category] + ".\n\nPlease share a few details and our team will contact you. You can also call us any time on +91 98453 10070 - we are open 24/7.", "bot");
           showForm();
         }, 700);
       } else {
@@ -217,4 +217,5 @@
 addEventListener('scroll',function(){var y=window.scrollY||0;
 if(!folded&&y>140){folded=true;document.documentElement.classList.add('scrolled');}
 else if(folded&&y<50){folded=false;document.documentElement.classList.remove('scrolled');}},{passive:true});})();
+
 
