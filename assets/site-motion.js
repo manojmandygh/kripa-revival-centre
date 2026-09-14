@@ -103,19 +103,19 @@
 
     const moments = [
       {
-        src: "/assets/images/unit-1-room.jpg",
+        src: "/assets/images/unit-1-room.webp",
         alt: "An unaltered photograph of a residential room at Kripa Revival Centre",
         label: "Rest and readiness",
         detail: "A calm residential setting",
       },
       {
-        src: "/assets/images/group-therapy.jpg",
+        src: "/assets/images/group-therapy.webp",
         alt: "An unaltered photograph of group work at Kripa Revival Centre",
         label: "Community and reflection",
         detail: "Shared learning and support",
       },
       {
-        src: "/assets/images/indoor-activity.jpg",
+        src: "/assets/images/indoor-activity.webp",
         alt: "An unaltered photograph of an indoor activity at Kripa Revival Centre",
         label: "Movement and recreation",
         detail: "Space to rebuild a daily rhythm",
@@ -208,7 +208,7 @@
           className: "story-visual--home-journey",
           images: [
             {
-              src: "/assets/images/home-journey-arc.jpg",
+              src: "/assets/images/home-journey-arc.webp",
               alt: "Representative photograph of a recovery mentor and resident walking together in a garden",
               label: "A steady way forward",
             },
@@ -261,7 +261,7 @@
           className: "story-visual--programme-journey story-visual--condensed",
           images: [
             {
-              src: "/assets/images/recovery-therapy-representative.jpg",
+              src: "/assets/images/recovery-therapy-representative.webp",
               alt: "Representative photograph of a small, supported recovery conversation",
               label: "A structured path through recovery",
             },
@@ -281,7 +281,7 @@
           className: "story-visual--family-support",
           images: [
             {
-              src: "/assets/images/family-support-representative.jpg",
+              src: "/assets/images/family-support-representative.webp",
               alt: "Representative photograph of an Indian family in a supported counselling conversation",
               label: "Conversation, clarity and participation",
             },
@@ -348,7 +348,7 @@
     const founderBiography = founder.querySelector("div:last-child > p:last-child");
 
     if (founderImage) {
-      founderImage.src = "/assets/images/benedict-reddy-founder-2026.jpg";
+      founderImage.src = "/assets/images/benedict-reddy-founder-2026.webp";
       founderImage.alt = "Benedict Reddy, founder of Kripa Revival Centre";
     }
 
@@ -370,7 +370,7 @@
       </div>
       <div class="legacy-people legacy-people--single">
         <figure class="legacy-person legacy-person--leonard">
-          <div class="legacy-portrait"><img loading="lazy" decoding="async" src="/assets/images/leonard-oscar-emmanual.jpg" alt="Portrait of Leonard Oscar Emmanual"></div>
+          <div class="legacy-portrait"><img loading="lazy" decoding="async" src="/assets/images/leonard-oscar-emmanual.webp" alt="Portrait of Leonard Oscar Emmanual"></div>
           <figcaption><span>Son</span><strong>Leonard Oscar Emmanual</strong></figcaption>
         </figure>
       </div>
@@ -390,7 +390,7 @@
         detail: "Valid through 31 March 2030",
       },
       {
-        href: "/assets/certificates/kpme-registration-certificate.jpg",
+        href: "/assets/certificates/kpme-registration-certificate.webp",
         title: "KPME registration",
         detail: "Valid through 11 June 2029",
       },
