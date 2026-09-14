@@ -4,20 +4,20 @@
 
 ## Key pages
 
-- [Home](https://www.kriparevivalcentre.org/): Overview, trust information and contact options.
-- [About](https://www.kriparevivalcentre.org/about/): Purpose, founder, legacy, credentials and licences.
-- [Programme](https://www.kriparevivalcentre.org/programme/): Four-month residential recovery programme.
-- [Care](https://www.kriparevivalcentre.org/care/): Medical, therapeutic and family-support services.
-- [Our place](https://www.kriparevivalcentre.org/our-place/): Residential environment, facilities and daily rhythm.
-- [Families](https://www.kriparevivalcentre.org/families/): Guidance for families considering residential treatment.
-- [Licenses & Certificates](https://www.kriparevivalcentre.org/licenses/): Verifiable licences, registrations, certificates and awards.
-- [Gallery](https://www.kriparevivalcentre.org/gallery/): Photographs of the centre - rooms, common areas, rooftop garden, and recognition visits.
-- [Q&A](https://www.kriparevivalcentre.org/qa/): Plain answers to common family questions (formerly the blog).
-- [Alcohol addiction](https://www.kriparevivalcentre.org/alcohol-addiction/): Signs, and how treatment works.
-- [Drug addiction](https://www.kriparevivalcentre.org/drug-addiction/): Signs, and how treatment works.
-- [Contact](https://www.kriparevivalcentre.org/contact/): Telephone, WhatsApp, email, address and map.
-- [Privacy policy](https://www.kriparevivalcentre.org/privacy/): How enquiries and personal information are handled.
-- [Terms of use](https://www.kriparevivalcentre.org/terms/): Conditions for using the website and its information.
+- [Home](https://kriparevivalcentre.org/): Overview, trust information and contact options.
+- [About](https://kriparevivalcentre.org/about/): Purpose, founder, legacy, credentials and licences.
+- [Programme](https://kriparevivalcentre.org/programme/): Four-month residential recovery programme.
+- [Care](https://kriparevivalcentre.org/care/): Medical, therapeutic and family-support services.
+- [Our place](https://kriparevivalcentre.org/our-place/): Residential environment, facilities and daily rhythm.
+- [Families](https://kriparevivalcentre.org/families/): Guidance for families considering residential treatment.
+- [Licenses & Certificates](https://kriparevivalcentre.org/licenses/): Verifiable licences, registrations, certificates and awards.
+- [Gallery](https://kriparevivalcentre.org/gallery/): Photographs of the centre - rooms, common areas, rooftop garden, and recognition visits.
+- [Q&A](https://kriparevivalcentre.org/qa/): Plain answers to common family questions (formerly the blog).
+- [Alcohol addiction](https://kriparevivalcentre.org/alcohol-addiction/): Signs, and how treatment works.
+- [Drug addiction](https://kriparevivalcentre.org/drug-addiction/): Signs, and how treatment works.
+- [Contact](https://kriparevivalcentre.org/contact/): Telephone, WhatsApp, email, address and map.
+- [Privacy policy](https://kriparevivalcentre.org/privacy/): How enquiries and personal information are handled.
+- [Terms of use](https://kriparevivalcentre.org/terms/): Conditions for using the website and its information.
 
 ## What we do
 

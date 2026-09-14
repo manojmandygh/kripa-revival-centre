@@ -19,4 +19,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://www.kriparevivalcentre.org/sitemap.xml
+Sitemap: https://kriparevivalcentre.org/sitemap.xml

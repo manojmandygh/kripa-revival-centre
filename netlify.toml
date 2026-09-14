@@ -15,10 +15,6 @@
     # The site does not request device sensors, capture devices, payments or
     # geolocation. The embedded map does not require these browser APIs.
     Permissions-Policy = "accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
-    # STAGING ONLY: keeps the test site (kriparevival.netlify.app) out of search
-    # results while it is a demo. REMOVE this X-Robots-Tag line at go-live, once
-    # www.kriparevivalcentre.org is set as the primary custom domain.
-    X-Robots-Tag = "noindex"
 
 # --- 301 redirects: previous site's URLs -> new structure ---
 # Preserves SEO equity when the live domain migrates to this build. Verify against
@@ -92,5 +88,17 @@
 [[redirects]]
   from = "/counselling"
   to = "/care/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/programmes"
+  to = "/programme/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
   status = 301
   force = true
