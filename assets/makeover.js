@@ -114,10 +114,13 @@
       '<label for="kb-name">Your name</label><input id="kb-name" name="name" type="text" autocomplete="name" required />' +
       '<label for="kb-phone">Phone / WhatsApp number</label><input id="kb-phone" name="phone" type="tel" autocomplete="tel" required />' +
       '<label for="kb-msg">Briefly, what is happening? (optional)</label><textarea id="kb-msg" name="message"></textarea>' +
+      /* spam honeypot: invisible to humans, bots that fill it are silently dropped (here and by FormSubmit's _honey) */
+      '<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden" />' +
       '<p class="kb-err" hidden></p>' +
       '<button class="kb-send" type="submit">Send enquiry</button>';
     f.addEventListener("submit", function (e) { e.preventDefault(); submitForm(f); });
     body.appendChild(f); scrollDown();
+    state.formShownAt = Date.now();
     var n = f.querySelector("#kb-name"); if (n) n.focus();
   }
   function submitForm(f) {
@@ -128,13 +131,26 @@
     if (name.length < 2) { err.textContent = "Please enter your name."; err.hidden = false; return; }
     if (!/^[+()\-.\s0-9]{8,16}$/.test(phone)) { err.textContent = "Please enter a valid phone number."; err.hidden = false; return; }
     err.hidden = true;
+    var honey = f._honey ? f._honey.value : "";
+    var catLabel = CATEGORIES[state.category] || "General";
+    /* honeypot filled, or submitted faster than a human can type -> pretend success, send nothing */
+    if (honey || Date.now() - (state.formShownAt || 0) < 2500) {
+      addMsg(name + ", " + phone, "user");
+      typing(function () {
+        addMsg("Thank you, " + name + ". Your enquiry has been sent to our team. We usually respond quickly - and we are available 24/7 on +91 98453 10070 if it cannot wait.", "bot");
+        showAlt(name, phone, msg, catLabel);
+      }, 700);
+      f.remove();
+      return;
+    }
     var btn = f.querySelector(".kb-send");
     btn.disabled = true; btn.textContent = "Sending...";
-    var catLabel = CATEGORIES[state.category] || "General";
     var payload = {
       _subject: "Website enquiry: " + catLabel + " - " + name,
       _template: "table",
+      /* FormSubmit reCAPTCHA only works on classic form posts, not the AJAX endpoint - the honeypot above carries the spam load */
       _captcha: "false",
+      _honey: honey,
       _replyto: "",
       category: catLabel,
       name: name,
